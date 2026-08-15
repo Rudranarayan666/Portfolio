@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --bg-navy: #090c16;
+    --bg-navy-card: rgba(255, 255, 255, 0.035);
+    --amber-light: #ff9d42;
+    --amber-deep: #f5a623;
+    --accent-blue: #6ea8fe;
+    --text-main: #f5f3ef;
+    --text-muted: #9aa3b2;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-navy);
+    color: var(--text-main);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090c16;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 157, 66, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 157, 66, 0.45);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Amber-Navy Glassmorphism Cards */
+.amber-glass-card {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 157, 66, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.amber-glass-card:hover {
+  background: rgba(255, 255, 255, 0.055);
+  border-color: rgba(255, 157, 66, 0.45);
+  box-shadow: 0 15px 35px -5px rgba(255, 157, 66, 0.15), 0 0 20px rgba(255, 157, 66, 0.08);
+  transform: translateY(-3px);
+}
+
+/* Subtle Glass Nav */
+.glass-nav-scrolled {
+  background: rgba(9, 12, 22, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 157, 66, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Text Gradient: Amber -> Orange -> Soft Blue */
+.text-amber-gradient {
+  background: linear-gradient(135deg, #ff9d42 0%, #f5a623 50%, #6ea8fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Amber Gradient */
+.btn-amber-gradient {
+  background: linear-gradient(135deg, #ff9d42 0%, #f5a623 100%);
+  color: #090c16;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 157, 66, 0.25);
+}
+
+.btn-amber-gradient:hover {
+  background: linear-gradient(135deg, #ffae58 0%, #fbaf33 100%);
+  box-shadow: 0 6px 20px rgba(255, 157, 66, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Floating symbols animation */
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(3deg);
+  }
+}
+
+.animate-float-symbol {
+  animation: floatUp 6s ease-in-out infinite;
+}
+
+/* Hero pulse glow */
+.hero-photo-glow {
+  box-shadow: 0 0 60px rgba(255, 157, 66, 0.18), 0 0 100px rgba(110, 168, 254, 0.08);
+}
