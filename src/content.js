@@ -187,10 +187,11 @@ export const SKILLS_CATEGORIES = [
     icon: "Brain",
     skills: [
       { name: "Scikit-Learn & PyTorch", detail: "Ensemble classification & computer vision models", level: 90 },
-      { name: "Explainable AI (SHAP)", detail: "Applied in USRF 2026 research pipeline", level: 88 },
+      { name: "Agentic AI & LangChain", detail: "LLM orchestration, custom agents & tools", level: 92 },
+      { name: "Prompt Engineering & MCP", detail: "Model Context Protocol servers & context controls", level: 95 },
+      { name: "Vector Databases", detail: "Chroma, Pinecone, and vectorized embeddings retrieval", level: 88 },
       { name: "Pandas & NumPy", detail: "Vectorized data processing & statistical modeling", level: 95 },
-      { name: "DuckDB & SQL", detail: "Self-healing query engine for DataTalk AI", level: 92 },
-      { name: "Power BI & Plotly", detail: "Custom analytical dashboard reporting", level: 86 }
+      { name: "DuckDB & SQL", detail: "Self-healing query engine for DataTalk AI", level: 92 }
     ]
   },
   {
@@ -207,6 +208,7 @@ export const SKILLS_CATEGORIES = [
     name: "Databases, Cloud & Tools",
     icon: "Database",
     skills: [
+      { name: "Claude Code & VS Code Tools", detail: "Modern agentic coding tools & custom editor configurations", level: 94 },
       { name: "MySQL & MongoDB", detail: "Relational schemas & NoSQL user data", level: 90 },
       { name: "Firebase & Vercel", detail: "Identity auth & cloud serverless deployments", level: 88 },
       { name: "Git & GitHub", detail: "CI/CD, version control, team leadership", level: 94 },

@@ -18,13 +18,20 @@ const stackCategories = [
     title: 'Data & Machine Learning',
     icon: Cpu,
     color: 'text-[#f5a623]',
-    pills: ['Power BI', 'Advanced Excel', 'Pandas', 'NumPy', 'Scikit-learn', 'Statistical Modeling']
+    pills: [
+      'Scikit-learn', 'Pandas', 'NumPy', 'LangChain', 'Agentic AI', 
+      'Prompt Engineering', 'Model Context Protocol (MCP)', 
+      'Vector Databases (Chroma/Pinecone)', 'Statistical Modeling'
+    ]
   },
   {
     title: 'Cloud & Tools',
     icon: Cloud,
     color: 'text-[#ff9d42]',
-    pills: ['SQL', 'MySQL', 'MongoDB', 'Firebase', 'Vercel', 'Git', 'GitHub', 'Docker', 'Agile', 'Scrum', 'Microservices']
+    pills: [
+      'SQL', 'MySQL', 'MongoDB', 'Firebase', 'Vercel', 'Git', 'GitHub', 
+      'Claude Code', 'VS Code Tools', 'Docker', 'Agile', 'Scrum'
+    ]
   },
   {
     title: 'Certifications',
