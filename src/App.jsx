@@ -11,10 +11,13 @@ import Stack from './components/Stack';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
+import ThemePicker from './components/ThemePicker';
+import Chatbot from './components/Chatbot';
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [isReducedMotion, setIsReducedMotion] = useState(false);
+  const [theme, setTheme] = useState('amber-navy');
 
   useEffect(() => {
     // Detect system preference for reduced motion
@@ -24,12 +27,17 @@ export default function App() {
     }
   }, []);
 
+  useEffect(() => {
+    // Apply theme attribute to the HTML tag
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
   const handleToggleMotion = () => {
     setIsReducedMotion((prev) => !prev);
   };
 
   return (
-    <div className="min-h-screen bg-[#090c16] text-[#f5f3ef] relative selection:bg-[#ff9d42]/30 selection:text-[#ff9d42]">
+    <div className="min-h-screen bg-[var(--bg-navy)] text-[var(--text-main)] relative selection:bg-[var(--amber-light)]/30 selection:text-[var(--amber-light)] transition-colors duration-300">
       
       {/* 1. Persistent Fixed Canvas Constellation Background */}
       <NetworkCanvas isReducedMotion={isReducedMotion} />
@@ -66,6 +74,12 @@ export default function App() {
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
       />
+
+      {/* Color Theme Selector Panel */}
+      <ThemePicker currentTheme={theme} onThemeChange={setTheme} />
+
+      {/* Interactive AI Chatbot Assistant */}
+      <Chatbot />
 
     </div>
   );

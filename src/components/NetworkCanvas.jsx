@@ -41,6 +41,11 @@ export default function NetworkCanvas({ isReducedMotion = false }) {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
+      // Fetch dynamic particle colors from active theme variables
+      const particleColor = getComputedStyle(document.documentElement)
+        .getPropertyValue('--canvas-particle')
+        .trim() || '255, 157, 66';
+
       // Draw lines between nearby particles
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
@@ -53,7 +58,7 @@ export default function NetworkCanvas({ isReducedMotion = false }) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(255, 157, 66, ${lineOpacity})`; // Amber line
+            ctx.strokeStyle = `rgba(${particleColor}, ${lineOpacity})`; 
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -66,7 +71,7 @@ export default function NetworkCanvas({ isReducedMotion = false }) {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 157, 66, ${p.alpha})`;
+        ctx.fillStyle = `rgba(${particleColor}, ${p.alpha})`;
         ctx.fill();
 
         if (!isReducedMotion) {

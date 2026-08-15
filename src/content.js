@@ -43,6 +43,19 @@ export const EDUCATION = {
 
 export const EXPERIENCE = [
   {
+    id: "usrf",
+    role: "USRF Research Fellow",
+    company: "Amity Centre for Artificial Intelligence, Amity University",
+    period: "2026 – Ongoing",
+    location: "Noida / Remote",
+    badge: "Research Fellowship",
+    description: [
+      "Selected in the Top 1% of applicants nationwide to conduct funded machine learning research.",
+      "Conducting research on ensemble ML models, explainability (SHAP, permutation importance), and leakage-controlled benchmarking."
+    ],
+    tech: ["Scikit-learn", "SHAP", "Pandas", "Optuna", "Statistical Modeling"]
+  },
+  {
     id: "iplit",
     role: "Software Developer Intern (Hybrid)",
     company: "IPLIT Solutions LLP",
@@ -74,7 +87,7 @@ export const PROJECTS = [
   {
     id: "rc-ads",
     title: "RC-ADS: Reality-Consistent AI Detection System",
-    period: "Feb 2026 – Mar 2026",
+    period: "Feb – Mar 2026",
     category: "AI & Cybersecurity",
     badge: "Explainable AI",
     featured: true,
@@ -116,7 +129,7 @@ export const PROJECTS = [
   {
     id: "lifeskillsphere",
     title: "LifeSkillSphere Platform",
-    period: "Oct 2025 – Dec 2025",
+    period: "Oct – Dec 2025",
     category: "Full-Stack Web",
     badge: "Next.js / MongoDB",
     featured: true,
@@ -206,27 +219,27 @@ export const SKILLS_CATEGORIES = [
 export const ACHIEVEMENTS = [
   {
     id: "hackdeck",
-    title: "1st Prize — HackDeck 2.0 (2026)",
-    organization: "IEEE Cybersecurity CTF Hackathon",
+    title: "1st Place – IEEE CTF Cybersecurity National Hackathon",
+    organization: "IEEE CTF",
     category: "Cybersecurity CTF",
     icon: "Trophy",
-    description: "Secured 1st rank nationwide by solving complex web vulnerability exploits, cryptography, and network forensics challenges."
+    description: "Secured 1st Place nationwide in CTF challenges, demonstrating strong expertise in cybersecurity, vulnerability exploits, cryptography, and network forensics."
   },
   {
-    id: "hackathon-winner",
-    title: "3× Winner & 4× Finalist",
-    organization: "National-Level Hackathons",
-    category: "Rapid Prototyping",
+    id: "oppstorm",
+    title: "Winner – OppStorm DevOps Hackathon",
+    organization: "OppStorm",
+    category: "DevOps Rapid Prototyping",
     icon: "Award",
-    description: "Built and pitched full-stack AI applications under 24-48 hour hackathon sprint timelines."
+    description: "Recognized for developing an effective DevOps-focused automated solution under highly competitive hackathon conditions."
   },
   {
-    id: "sih-lead",
-    title: "Team Leader — Smart India Hackathon",
-    organization: "Internal Hackathon Round",
-    category: "Technical Leadership",
-    icon: "Users",
-    description: "Led team framing, architecture design, and problem solving for government project statements."
+    id: "dataweb",
+    title: "Runner-Up – DataWeb Hackathon",
+    organization: "DataWeb",
+    category: "Generative AI",
+    icon: "Flame",
+    description: "Developed a Generative AI-focused solution, exploring and deploying practical real-world applications of LLM agents."
   },
   {
     id: "usrf-fellow",
@@ -234,9 +247,36 @@ export const ACHIEVEMENTS = [
     organization: "Amity University",
     category: "Top 1% Nationwide",
     icon: "GraduationCap",
-    description: "Selected among Top 1% applicants to conduct sponsored ML research on ensemble model reliability."
+    description: "Selected among the Top 1% of applicants nationwide to conduct sponsored ML research on ensemble model reliability and explainability."
   }
 ];
+
+export const CAMPUS_LEADERSHIP = [
+  {
+    club: "Information Technology Students Association (ITSA)",
+    roles: [
+      { role: "Student Ambassador", period: "2026–2027", desc: "Representing and promoting technical initiatives, student engagement, and community activities." },
+      { role: "Secretary", period: "2025", desc: "Coordinated technical events, workshops, and organizational activities while collaborating with student teams." },
+      { role: "Technical Member", period: "2024", desc: "Contributed to technical activities, events, and student-focused initiatives." }
+    ]
+  },
+  {
+    club: "Cybersecurity Club",
+    roles: [
+      { role: "President", period: "2026–2027", desc: "Leading the cybersecurity community, organizing technical events, and driving learning initiatives." },
+      { role: "Technical Co-Head", period: "2025", desc: "Led technical initiatives, cybersecurity activities, and hands-on learning sessions." }
+    ]
+  }
+];
+
+export const MENTORSHIP = {
+  headline: "Mentorship & Community Impact",
+  stats: "Mentored 100+ students",
+  details: [
+    "Mentored 100+ students through hands-on bootcamps, technical workshops, and peer-learning sessions, helping students strengthen their skills in Cybersecurity, Development, DevOps, and emerging AI technologies.",
+    "Organized and contributed to technical sessions focused on practical learning, problem-solving, and industry-relevant technologies."
+  ]
+};
 
 export const CERTIFICATIONS = [
   {
