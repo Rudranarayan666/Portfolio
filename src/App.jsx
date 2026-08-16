@@ -13,11 +13,13 @@ import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
 import ThemePicker from './components/ThemePicker';
 import Chatbot from './components/Chatbot';
+import TerminalBoot from './components/TerminalBoot';
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [isReducedMotion, setIsReducedMotion] = useState(false);
   const [theme, setTheme] = useState('amber-navy');
+  const [bootComplete, setBootComplete] = useState(false);
 
   useEffect(() => {
     // Detect system preference for reduced motion
@@ -38,6 +40,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[var(--bg-navy)] text-[var(--text-main)] relative selection:bg-[var(--amber-light)]/30 selection:text-[var(--amber-light)] transition-colors duration-300">
+
+      {/* Terminal Boot Splash Screen */}
+      {!bootComplete && (
+        <TerminalBoot onBootComplete={() => setBootComplete(true)} />
+      )}
       
       {/* 1. Persistent Fixed Canvas Constellation Background */}
       <NetworkCanvas isReducedMotion={isReducedMotion} />

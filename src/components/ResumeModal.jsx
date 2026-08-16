@@ -29,7 +29,7 @@ export default function ResumeModal({ isOpen, onClose }) {
           </div>
           <div>
             <h3 className="font-heading font-bold text-lg text-white">Rudranarayan's Resume</h3>
-            <p className="font-mono text-xs text-[#9aa3b2]">PDF Document Placeholder</p>
+            <p className="font-mono text-xs text-[#9aa3b2]">Software Engineer & AI Researcher — 2026</p>
           </div>
         </div>
 
@@ -38,16 +38,13 @@ export default function ResumeModal({ isOpen, onClose }) {
         </p>
 
         <div className="space-y-3">
-          <button
-            onClick={() => {
-              // Placeholder link notification
-              alert('Resume PDF Link: Replace href in code with Google Drive or hosted PDF URL.');
-            }}
+          <a
+            href="mailto:rudrasahu797@gmail.com?subject=Resume%20Request%20-%20Rudranarayan%20Sahu&body=Hi%20Rudra%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20request%20a%20copy%20of%20your%20resume.%0A%0AThanks!"
             className="w-full py-2.5 px-4 rounded-xl btn-amber-gradient flex items-center justify-center space-x-2 text-sm font-semibold"
           >
-            <span>View Resume PDF (Placeholder)</span>
+            <span>Request Resume via Email</span>
             <ExternalLink className="w-4 h-4" />
-          </button>
+          </a>
 
           <button
             onClick={handleCopyEmail}

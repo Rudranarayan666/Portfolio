@@ -106,14 +106,12 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
             {/* Social Links & Open Status Row */}
             <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10">
               <div className="flex items-center space-x-2">
-                {/* GitHub Placeholder Link */}
+                {/* GitHub Profile Link */}
                 <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    alert('GitHub Profile Link Placeholder: Add Rudra\'s GitHub URL here');
-                  }}
-                  title="GitHub Profile (Placeholder)"
+                  href="https://github.com/Rudranarayan666"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub Profile"
                   className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff9d42]/40 text-[#9aa3b2] hover:text-[#ff9d42] transition-colors"
                 >
                   <GithubIcon className="w-5 h-5" />
