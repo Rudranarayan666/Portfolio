@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, ArrowUpRight, FileText, MessageSquare, MapPin, Code2, Trophy } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
-import Spline from '@splinetool/react-spline';
 
 const roles = [
   'Software Engineer',
@@ -36,18 +35,67 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
     { label: 'Grad Year', value: '2027' }
   ];
 
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    if (isReducedMotion) return;
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    const x = (clientX / innerWidth - 0.5) * 20; // max rotation 20deg
+    const y = (clientY / innerHeight - 0.5) * -20;
+    setMousePos({ x, y });
+  };
+
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 z-10 overflow-hidden">
+    <section 
+      className="relative pt-32 pb-16 md:pt-40 md:pb-24 z-10 overflow-hidden perspective-1000"
+      onMouseMove={handleMouseMove}
+    >
       
-      {/* Spline 3D Background */}
+      {/* Dynamic Particle Background */}
       {!isReducedMotion && (
-        <div className="absolute inset-0 z-0 opacity-40 pointer-events-none mix-blend-screen scale-150 transform-gpu translate-y-10">
-          <Spline scene="https://prod.spline.design/JP9ebY92okSY0fZd/scene.splinecode" />
+        <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
+          <style>{`
+            @keyframes particleFloat {
+              0% { transform: translateY(0) translateX(0); opacity: 0; }
+              50% { opacity: 1; }
+              100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+            }
+            .particles-container {
+              position: absolute;
+              top: 0; left: 0; width: 100%; height: 100%;
+              overflow: hidden;
+            }
+            .particle {
+              position: absolute;
+              bottom: -10px;
+              width: 4px; height: 4px;
+              background: var(--amber-light);
+              border-radius: 50%;
+              box-shadow: 0 0 10px var(--amber-light);
+              animation: particleFloat linear infinite;
+            }
+          `}</style>
+          <div className="particles-container">
+            {[...Array(30)].map((_, i) => (
+              <div 
+                key={i} 
+                className="particle"
+                style={{
+                  left: \`\${Math.random() * 100}%\`,
+                  animationDuration: \`\${5 + Math.random() * 10}s\`,
+                  animationDelay: \`\${Math.random() * 5}s\`,
+                  opacity: Math.random()
+                }}
+              />
+            ))}
+          </div>
         </div>
       )}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 transition-transform duration-200 ease-out"
+           style={{ transform: \`rotateX(\${mousePos.y}deg) rotateY(\${mousePos.x}deg)\`, transformStyle: 'preserve-3d' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center" style={{ transform: 'translateZ(30px)' }}>
           
           {/* Main Hero Left Column (Text Content) */}
           <div className="lg:col-span-7 space-y-6 order-2 lg:order-1 text-left">
