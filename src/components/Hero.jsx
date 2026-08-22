@@ -42,7 +42,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
       {/* Spline 3D Background */}
       {!isReducedMotion && (
         <div className="absolute inset-0 z-0 opacity-40 pointer-events-none mix-blend-screen scale-150 transform-gpu translate-y-10">
-          <Spline scene="https://prod.spline.design/6cd11a6f-3224-4f6a-9058-2fbcd96f53bd/scene.splinecode" />
+          <Spline scene="https://prod.spline.design/NN83ldhVfPn2IYc6/scene.splinecode" />
         </div>
       )}
 
