@@ -24,7 +24,6 @@ Hi, I'm **Rudranarayan Sahu** — a Software Engineering student at **A.P. Shah 
 
 | 🎓 Degree | B.E. in Information Technology (2023–2027) |
 |---|---|
-| 📍 Location | Thane / Mumbai, India |
 | 📊 CGPA | **9.22 / 10.0** |
 | 🏆 Research | **USRF 2026 Fellow** — Top 1% Nationwide (Amity University) |
 | 🥇 Hackathons | **3× National Winner** • **4× National Finalist** |
@@ -46,6 +45,7 @@ Hi, I'm **Rudranarayan Sahu** — a Software Engineering student at **A.P. Shah 
 | 📄 **Resume Modal** | In-app resume viewer |
 | 📬 **Contact Section** | Direct email & social links |
 | 📱 **Fully Responsive** | Mobile-first design across all breakpoints |
+| 🖱️ **3D Cursor Effect** | Trembling moving 3D cursor interaction |
 
 ---
 
@@ -221,7 +221,6 @@ portfolio/
 
 - 📧 **Email:** rudrasahu797@gmail.com
 - 📞 **Phone:** +91-8779989455
-- 📍 **Location:** Thane / Mumbai, India
 
 ---
 

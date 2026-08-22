@@ -14,6 +14,7 @@ import ResumeModal from './components/ResumeModal';
 import ThemePicker from './components/ThemePicker';
 import Chatbot from './components/Chatbot';
 import TerminalBoot from './components/TerminalBoot';
+import Cursor3D from './components/Cursor3D';
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -46,6 +47,9 @@ export default function App() {
         <TerminalBoot onBootComplete={() => setBootComplete(true)} />
       )}
       
+      {/* 3D Moving Trembling Cursor */}
+      <Cursor3D isReducedMotion={isReducedMotion} />
+
       {/* 1. Persistent Fixed Canvas Constellation Background */}
       <NetworkCanvas isReducedMotion={isReducedMotion} />
 
