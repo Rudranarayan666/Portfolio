@@ -166,38 +166,39 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#ff9d42]/20 via-[#f5a623]/10 to-[#6ea8fe]/20 blur-2xl -z-10 hero-photo-glow" />
 
               {/* Main Photo Card with Swirling Animation */}
-              <div 
-                className="relative rounded-full overflow-hidden amber-glass-card p-2 border-[3px] border-dashed border-[#ff9d42]/60 shadow-2xl shadow-[#ff9d42]/20 w-64 h-64 sm:w-80 sm:h-80 mx-auto"
-                style={{
-                  animation: isReducedMotion ? 'none' : 'swirl 15s linear infinite'
-                }}
-              >
-                <style>{`
-                  @keyframes swirl {
-                    0% { transform: rotate(0deg); }
-                    100% { transform: rotate(360deg); }
-                  }
-                  .counter-swirl {
-                    animation: counter-swirl 15s linear infinite;
-                  }
-                  @keyframes counter-swirl {
-                    0% { transform: rotate(0deg) scale(1.05); }
-                    100% { transform: rotate(-360deg) scale(1.05); }
-                  }
-                `}</style>
-                <div className={isReducedMotion ? "" : "counter-swirl w-full h-full rounded-full overflow-hidden"}>
-                  <img
-                    src="/photo.png"
-                    alt="Rudranarayan Sahu - Software Engineer & AI Researcher"
-                    className="w-full h-full object-cover object-top filter brightness-105 contrast-105 rounded-full"
-                    onError={(e) => {
-                      // Fallback avatar background if photo load fails
-                      e.target.style.display = 'none';
-                      e.target.parentNode.classList.add('bg-gradient-to-b', 'from-[#0d1224]', 'to-[#090c16]', 'flex', 'items-center', 'justify-center', 'h-full');
-                    }}
-                  />
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto">
+                <div 
+                  className="absolute inset-0 rounded-full overflow-hidden amber-glass-card p-2 border-[3px] border-dashed border-[#ff9d42]/60 shadow-2xl shadow-[#ff9d42]/20"
+                  style={{
+                    animation: isReducedMotion ? 'none' : 'swirl 15s linear infinite'
+                  }}
+                >
+                  <style>{`
+                    @keyframes swirl {
+                      0% { transform: rotate(0deg); }
+                      100% { transform: rotate(360deg); }
+                    }
+                    .counter-swirl {
+                      animation: counter-swirl 15s linear infinite;
+                    }
+                    @keyframes counter-swirl {
+                      0% { transform: rotate(0deg) scale(1.05); }
+                      100% { transform: rotate(-360deg) scale(1.05); }
+                    }
+                  `}</style>
+                  <div className={isReducedMotion ? "w-full h-full rounded-full overflow-hidden" : "counter-swirl w-full h-full rounded-full overflow-hidden"}>
+                    <img
+                      src="/photo.png"
+                      alt="Rudranarayan Sahu - Software Engineer & AI Researcher"
+                      className="w-full h-full object-cover object-top filter brightness-105 contrast-105 rounded-full"
+                      onError={(e) => {
+                        // Fallback avatar background if photo load fails
+                        e.target.style.display = 'none';
+                        e.target.parentNode.classList.add('bg-gradient-to-b', 'from-[#0d1224]', 'to-[#090c16]', 'flex', 'items-center', 'justify-center', 'h-full');
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
 
               {/* Overlapping Badge 1: Top-Left */}
                 <div className="absolute top-6 left-4 px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn">
