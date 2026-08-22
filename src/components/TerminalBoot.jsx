@@ -13,14 +13,14 @@ export default function TerminalBoot({ onBootComplete }) {
   useEffect(() => {
     if (currentLine >= TERMINAL_BOOT_LOGS.length) {
       // All lines typed — show "LAUNCH" button after brief pause
-      const timer = setTimeout(() => setIsComplete(true), 600);
+      const timer = setTimeout(() => setIsComplete(true), 200);
       return () => clearTimeout(timer);
     }
 
     const fullLine = TERMINAL_BOOT_LOGS[currentLine];
 
     if (currentChar < fullLine.length) {
-      const speed = fullLine[currentChar] === "." ? 60 : 25;
+      const speed = fullLine[currentChar] === "." ? 20 : 5;
       const timer = setTimeout(() => {
         setLines((prev) => {
           const copy = [...prev];
@@ -36,7 +36,7 @@ export default function TerminalBoot({ onBootComplete }) {
         setCurrentLine((l) => l + 1);
         setCurrentChar(0);
         setLines((prev) => [...prev, ""]);
-      }, 300);
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [currentLine, currentChar]);

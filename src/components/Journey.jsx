@@ -3,57 +3,28 @@ import { Briefcase, GraduationCap, Compass, Trophy, Users, ShieldAlert, Award, S
 import { EXPERIENCE, CAMPUS_LEADERSHIP, MENTORSHIP } from '../content';
 
 export default function Journey() {
-  const [activeTab, setActiveTab] = useState('experience'); // 'experience', 'leadership', 'mentorship'
   const [selectedExperience, setSelectedExperience] = useState(EXPERIENCE[0]?.id || '');
   const [selectedLeadership, setSelectedLeadership] = useState(CAMPUS_LEADERSHIP[0]?.club || '');
 
-  const tabs = [
-    { id: 'experience', label: 'Experience & Research', icon: Briefcase },
-    { id: 'leadership', label: 'Campus Leadership', icon: Users },
-    { id: 'mentorship', label: 'Mentorship & Impact', icon: BookOpen }
-  ];
-
   return (
-    <section id="journey" className="py-20 relative z-10 scroll-mt-24">
+    <div className="space-y-24">
+    <section id="experience" className="py-20 relative z-10 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-2">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[rgba(var(--amber-light-rgb),0.1)] border border-[rgba(var(--amber-light-rgb),0.2)] font-mono text-xs text-[var(--amber-light)] font-semibold tracking-wider uppercase">
-              <Compass className="w-3.5 h-3.5" />
-              <span>EXPERIENCE & INVOLVEMENT</span>
+              <Briefcase className="w-3.5 h-3.5" />
+              <span>PROFESSIONAL TIMELINE</span>
             </div>
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#f5f3ef]">
-              My <span className="text-amber-gradient">Journey</span>
+              Experience & <span className="text-amber-gradient">Research</span>
             </h2>
-          </div>
-
-          {/* Interactive Tab Controller */}
-          <div className="flex flex-wrap gap-2 p-1 rounded-2xl bg-white/5 border border-white/10 max-w-max">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-semibold flex items-center space-x-2 transition-all ${
-                    isActive
-                      ? 'bg-[var(--amber-light)] text-[var(--bg-navy)] shadow-lg'
-                      : 'text-[#9aa3b2] hover:text-[#f5f3ef] hover:bg-white/5'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
           </div>
         </div>
 
-        {/* Tab Panel 1: EXPERIENCE & RESEARCH */}
-        {activeTab === 'experience' && (
+        {/* Panel 1: EXPERIENCE & RESEARCH */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Vertical Interactive Connecting Nodes */}
             <div className="lg:col-span-5 space-y-4 relative pl-8 border-l border-white/10 ml-4 py-2">
@@ -146,10 +117,25 @@ export default function Journey() {
               })()}
             </div>
           </div>
-        )}
+      </div>
+    </section>
 
-        {/* Tab Panel 2: CAMPUS LEADERSHIP */}
-        {activeTab === 'leadership' && (
+    <section id="leadership" className="py-10 relative z-10 scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="space-y-2">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[rgba(var(--accent-blue-rgb),0.1)] border border-[rgba(var(--accent-blue-rgb),0.2)] font-mono text-xs text-[var(--accent-blue)] font-semibold tracking-wider uppercase">
+              <Users className="w-3.5 h-3.5" />
+              <span>COMMUNITY</span>
+            </div>
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#f5f3ef]">
+              Campus <span className="text-blue-gradient">Leadership</span>
+            </h2>
+          </div>
+        </div>
+
+        {/* Panel 2: CAMPUS LEADERSHIP */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Clubs Selector */}
             <div className="lg:col-span-5 space-y-4">
@@ -224,10 +210,25 @@ export default function Journey() {
               })()}
             </div>
           </div>
-        )}
+      </div>
+    </section>
 
-        {/* Tab Panel 3: MENTORSHIP & IMPACT */}
-        {activeTab === 'mentorship' && (
+    <section id="mentorship" className="py-10 relative z-10 scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="space-y-2">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[rgba(var(--amber-light-rgb),0.1)] border border-[rgba(var(--amber-light-rgb),0.2)] font-mono text-xs text-[#f5a623] font-semibold tracking-wider uppercase">
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>GIVING BACK</span>
+            </div>
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#f5f3ef]">
+              Mentorship & <span className="text-orange-gradient">Impact</span>
+            </h2>
+          </div>
+        </div>
+
+        {/* Panel 3: MENTORSHIP & IMPACT */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
             {/* Stat Card */}
             <div className="md:col-span-4 amber-glass-card p-6 rounded-3xl border border-[var(--amber-light)]/20 flex flex-col justify-between items-center text-center">
@@ -282,9 +283,9 @@ export default function Journey() {
               </div>
             </div>
           </div>
-        )}
-
       </div>
     </section>
+
+    </div>
   );
 }

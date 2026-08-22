@@ -282,6 +282,11 @@ export const MENTORSHIP = {
 
 export const CERTIFICATIONS = [
   {
+    title: "Oracle Agentic AI Certified Foundations Associate",
+    issuer: "Oracle",
+    badge: "Verified"
+  },
+  {
     title: "IBM Data Analysis with Python Certification",
     issuer: "IBM",
     badge: "Verified"

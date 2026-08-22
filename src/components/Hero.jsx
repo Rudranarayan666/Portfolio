@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, ArrowUpRight, FileText, MessageSquare, MapPin, Code2, Trophy } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
+import Spline from '@splinetool/react-spline';
 
 const roles = [
   'Software Engineer',
@@ -36,8 +37,16 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
   ];
 
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 z-10 overflow-hidden">
+      
+      {/* Spline 3D Background */}
+      {!isReducedMotion && (
+        <div className="absolute inset-0 z-0 opacity-40 pointer-events-none mix-blend-screen scale-150 transform-gpu translate-y-10">
+          <Spline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+        </div>
+      )}
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Main Hero Left Column (Text Content) */}
@@ -156,20 +165,41 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
               {/* Photo Glow Backdrop */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#ff9d42]/20 via-[#f5a623]/10 to-[#6ea8fe]/20 blur-2xl -z-10 hero-photo-glow" />
 
-              {/* Main Photo Card */}
-              <div className="relative rounded-3xl overflow-hidden amber-glass-card p-3 border border-[#ff9d42]/30">
-                <img
-                  src="/photo.png"
-                  alt="Rudranarayan Sahu - Software Engineer & AI Researcher"
-                  className="w-full h-80 sm:h-96 object-cover object-top rounded-2xl filter brightness-105 contrast-105"
-                  onError={(e) => {
-                    // Fallback avatar background if photo load fails
-                    e.target.style.display = 'none';
-                    e.target.parentNode.classList.add('bg-gradient-to-b', 'from-[#0d1224]', 'to-[#090c16]', 'flex', 'items-center', 'justify-center', 'h-80');
-                  }}
-                />
+              {/* Main Photo Card with Swirling Animation */}
+              <div 
+                className="relative rounded-full overflow-hidden amber-glass-card p-2 border-[3px] border-dashed border-[#ff9d42]/60 shadow-2xl shadow-[#ff9d42]/20 w-64 h-64 sm:w-80 sm:h-80 mx-auto"
+                style={{
+                  animation: isReducedMotion ? 'none' : 'swirl 15s linear infinite'
+                }}
+              >
+                <style>{`
+                  @keyframes swirl {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                  }
+                  .counter-swirl {
+                    animation: counter-swirl 15s linear infinite;
+                  }
+                  @keyframes counter-swirl {
+                    0% { transform: rotate(0deg) scale(1.05); }
+                    100% { transform: rotate(-360deg) scale(1.05); }
+                  }
+                `}</style>
+                <div className={isReducedMotion ? "" : "counter-swirl w-full h-full rounded-full overflow-hidden"}>
+                  <img
+                    src="/photo.png"
+                    alt="Rudranarayan Sahu - Software Engineer & AI Researcher"
+                    className="w-full h-full object-cover object-top filter brightness-105 contrast-105 rounded-full"
+                    onError={(e) => {
+                      // Fallback avatar background if photo load fails
+                      e.target.style.display = 'none';
+                      e.target.parentNode.classList.add('bg-gradient-to-b', 'from-[#0d1224]', 'to-[#090c16]', 'flex', 'items-center', 'justify-center', 'h-full');
+                    }}
+                  />
+                </div>
+              </div>
 
-                {/* Overlapping Badge 1: Top-Left */}
+              {/* Overlapping Badge 1: Top-Left */}
                 <div className="absolute top-6 left-4 px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn">
                   <MapPin className="w-3.5 h-3.5 text-[#ff9d42]" />
                   <span className="font-mono text-xs font-semibold text-white">Based in Thane</span>
