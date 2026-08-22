@@ -82,9 +82,9 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
                 key={i} 
                 className="particle"
                 style={{
-                  left: \`\${Math.random() * 100}%\`,
-                  animationDuration: \`\${5 + Math.random() * 10}s\`,
-                  animationDelay: \`\${Math.random() * 5}s\`,
+                  left: `${Math.random() * 100}%`,
+                  animationDuration: `${5 + Math.random() * 10}s`,
+                  animationDelay: `${Math.random() * 5}s`,
                   opacity: Math.random()
                 }}
               />
@@ -94,7 +94,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
       )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 transition-transform duration-200 ease-out"
-           style={{ transform: \`rotateX(\${mousePos.y}deg) rotateY(\${mousePos.x}deg)\`, transformStyle: 'preserve-3d' }}>
+           style={{ transform: `rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`, transformStyle: 'preserve-3d' }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center" style={{ transform: 'translateZ(30px)' }}>
           
           {/* Main Hero Left Column (Text Content) */}
