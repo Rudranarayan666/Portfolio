@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, ArrowUpRight, FileText, MessageSquare, MapPin, Code2, Trophy } from 'lucide-react';
+import { Mail, ArrowUpRight, FileText, MessageSquare, MapPin, Code2, Trophy, Briefcase } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
-
-const roles = [
-  'Software Engineer',
-  'Full-Stack Developer',
-  'AI/ML Researcher',
-  'USRF Research Fellow'
-];
+import { HERO_ROLES, HERO_AVAILABILITY, HERO_CIRCULAR_TEXT, PERSONAL_INFO } from '../content';
 
 export default function Hero({ onOpenResume, isReducedMotion }) {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -19,7 +13,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
     const interval = setInterval(() => {
       setFade(false);
       setTimeout(() => {
-        setRoleIndex((prev) => (prev + 1) % roles.length);
+        setRoleIndex((prev) => (prev + 1) % HERO_ROLES.length);
         setFade(true);
       }, 300);
     }, 2500);
@@ -29,7 +23,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
 
   const stats = [
     { label: 'CGPA', value: '9.22' },
-    { label: 'Shipped Projects', value: '3+' },
+    { label: 'Built Projects', value: '8+' },
     { label: 'Hackathon Wins', value: '3×' },
     { label: 'Finalist Runs', value: '4×' },
     { label: 'Grad Year', value: '2027' }
@@ -41,17 +35,20 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
     if (isReducedMotion) return;
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * 20; // max rotation 20deg
+    const x = (clientX / innerWidth - 0.5) * 20;
     const y = (clientY / innerHeight - 0.5) * -20;
     setMousePos({ x, y });
   };
 
+  // Circular text radius — adjust to fit around image
+  const CIRCLE_RADIUS = 150;
+  const circumference = 2 * Math.PI * CIRCLE_RADIUS;
+
   return (
-    <section 
+    <section
       className="relative pt-32 pb-16 md:pt-40 md:pb-24 z-10 overflow-hidden perspective-1000"
       onMouseMove={handleMouseMove}
     >
-      
       {/* Dynamic Particle Background */}
       {!isReducedMotion && (
         <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
@@ -78,8 +75,8 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
           `}</style>
           <div className="particles-container">
             {[...Array(30)].map((_, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="particle"
                 style={{
                   left: `${Math.random() * 100}%`,
@@ -96,10 +93,10 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 transition-transform duration-200 ease-out"
            style={{ transform: `rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`, transformStyle: 'preserve-3d' }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center" style={{ transform: 'translateZ(30px)' }}>
-          
-          {/* Main Hero Left Column (Text Content) */}
+
+          {/* ── Left Column: Text Content ── */}
           <div className="lg:col-span-7 space-y-6 order-2 lg:order-1 text-left">
-            
+
             {/* Eyebrow Pill */}
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#ff9d42]/10 border border-[#ff9d42]/25 backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-[#ff9d42] animate-pulse" />
@@ -108,7 +105,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
               </span>
             </div>
 
-            {/* Main Name & Title */}
+            {/* Name */}
             <div>
               <p className="text-[#9aa3b2] text-lg font-medium tracking-wide">Hi, I'm</p>
               <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none mt-1">
@@ -124,16 +121,32 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
                   fade ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
                 }`}
               >
-                {roles[roleIndex]}
+                {HERO_ROLES[roleIndex]}
               </span>
             </div>
 
-            {/* Bio One-Liner */}
+            {/* Open-to-Work Availability Badge — prominent */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 neo-card">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
+              </span>
+              <div className="flex flex-col">
+                <span className="font-mono text-xs font-bold text-emerald-300 tracking-wider uppercase">
+                  Available Now
+                </span>
+                <span className="font-sans text-xs text-emerald-400/80">
+                  {HERO_AVAILABILITY}
+                </span>
+              </div>
+            </div>
+
+            {/* Bio */}
             <p className="text-base sm:text-lg text-[#9aa3b2] leading-relaxed max-w-2xl">
               I build AI-driven systems and full-stack products — from AI content detectors to ML research pipelines — with rigor and a bias for shipping.
             </p>
 
-            {/* CTA Button Row */}
+            {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href="#projects"
@@ -160,12 +173,11 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
               </a>
             </div>
 
-            {/* Social Links & Open Status Row */}
+            {/* Social Links */}
             <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10">
               <div className="flex items-center space-x-2">
-                {/* GitHub Profile Link */}
                 <a
-                  href="https://github.com/Rudranarayan666"
+                  href={PERSONAL_INFO.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   title="GitHub Profile"
@@ -174,9 +186,8 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
                   <GithubIcon className="w-5 h-5" />
                 </a>
 
-                {/* LinkedIn Profile */}
                 <a
-                  href="https://www.linkedin.com/in/rudranarayan-sahu-42017a368/"
+                  href={PERSONAL_INFO.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   title="LinkedIn Profile"
@@ -185,83 +196,92 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
                   <LinkedinIcon className="w-5 h-5" />
                 </a>
 
-                {/* Email Direct Link */}
                 <a
-                  href="mailto:rudrasahu797@gmail.com"
+                  href={`mailto:${PERSONAL_INFO.email}`}
                   title="Send Email"
                   className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff9d42]/40 text-[#9aa3b2] hover:text-[#ff9d42] transition-colors"
                 >
                   <Mail className="w-5 h-5" />
                 </a>
               </div>
-
-              {/* Status Badge */}
-              <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                <span className="font-mono text-xs font-semibold text-emerald-300">
-                  Open to SDE / AI-ML Internships
-                </span>
-              </div>
             </div>
-
           </div>
 
-          {/* Right Column: Photo Panel with Floating Badges */}
+          {/* ── Right Column: Photo with Circular Text ── */}
           <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center">
             <div className="relative w-full max-w-sm sm:max-w-md">
-              
+
               {/* Photo Glow Backdrop */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#ff9d42]/20 via-[#f5a623]/10 to-[#6ea8fe]/20 blur-2xl -z-10 hero-photo-glow" />
 
-              {/* Main Photo Card with Swirling Animation */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto">
-                <div 
-                  className="absolute inset-0 rounded-full overflow-hidden amber-glass-card p-2 border-[3px] border-dashed border-[#ff9d42]/60 shadow-2xl shadow-[#ff9d42]/20"
-                  style={{
-                    animation: isReducedMotion ? 'none' : 'swirl 15s linear infinite'
-                  }}
-                >
-                  <style>{`
-                    @keyframes swirl {
-                      0% { transform: rotate(0deg); }
-                      100% { transform: rotate(360deg); }
-                    }
-                    .counter-swirl {
-                      animation: counter-swirl 15s linear infinite;
-                    }
-                    @keyframes counter-swirl {
-                      0% { transform: rotate(0deg) scale(1.05); }
-                      100% { transform: rotate(-360deg) scale(1.05); }
-                    }
-                  `}</style>
-                  <div className={isReducedMotion ? "w-full h-full rounded-full overflow-hidden" : "counter-swirl w-full h-full rounded-full overflow-hidden"}>
-                    <img
-                      src="/photo.png"
-                      alt="Rudranarayan Sahu - Software Engineer & AI Researcher"
-                      className="w-full h-full object-cover object-top filter brightness-105 contrast-105 rounded-full"
-                      onError={(e) => {
-                        // Fallback avatar background if photo load fails
-                        e.target.style.display = 'none';
-                        e.target.parentNode.classList.add('bg-gradient-to-b', 'from-[#0d1224]', 'to-[#090c16]', 'flex', 'items-center', 'justify-center', 'h-full');
-                      }}
-                    />
+              {/* Circular Text + Photo Container */}
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto flex items-center justify-center">
+
+                {/* ── Circular Rolling Text (SVG) ── */}
+                {!isReducedMotion && (
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <svg
+                      viewBox="0 0 300 300"
+                      className="w-full h-full"
+                      style={{ animation: 'spinText 18s linear infinite' }}
+                    >
+                      <defs>
+                        <path
+                          id="circlePath"
+                          d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0"
+                        />
+                      </defs>
+                      <text
+                        className="fill-[#ff9d42] font-mono"
+                        style={{
+                          fontSize: '11px',
+                          fontFamily: 'JetBrains Mono, monospace',
+                          letterSpacing: '2px',
+                          filter: 'drop-shadow(0 0 6px rgba(255,157,66,0.5))'
+                        }}
+                      >
+                        <textPath href="#circlePath" startOffset="0%">
+                          {HERO_CIRCULAR_TEXT} {HERO_CIRCULAR_TEXT}
+                        </textPath>
+                      </text>
+                    </svg>
+
+                    <style>{`
+                      @keyframes spinText {
+                        from { transform: rotate(0deg); }
+                        to { transform: rotate(360deg); }
+                      }
+                    `}</style>
                   </div>
+                )}
+
+                {/* Inner photo frame — stable (not rotating) */}
+                <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-[3px] border-[#ff9d42]/60 shadow-2xl shadow-[#ff9d42]/20 amber-glass-card z-10">
+                  <img
+                    src="/photo.png"
+                    alt="Rudranarayan Sahu - Software Engineer & AI Researcher"
+                    className="w-full h-full object-cover object-top filter brightness-105 contrast-105"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentNode.style.background = 'linear-gradient(to bottom, #0d1224, #090c16)';
+                    }}
+                  />
                 </div>
 
-              {/* Overlapping Badge 1: Top-Left */}
-                <div className="absolute top-6 left-4 px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn">
+                {/* Badge: Top-Left */}
+                <div className="absolute top-4 left-0 px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
                   <MapPin className="w-3.5 h-3.5 text-[#ff9d42]" />
                   <span className="font-mono text-xs font-semibold text-white">Based in Thane</span>
                 </div>
 
-                {/* Overlapping Badge 2: Bottom-Left */}
-                <div className="absolute bottom-6 left-4 px-3.5 py-1.5 rounded-xl amber-glass-card border border-[#6ea8fe]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn">
+                {/* Badge: Bottom-Left */}
+                <div className="absolute bottom-4 left-0 px-3.5 py-1.5 rounded-xl amber-glass-card border border-[#6ea8fe]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
                   <Code2 className="w-3.5 h-3.5 text-[#6ea8fe]" />
                   <span className="font-mono text-xs font-semibold text-[#6ea8fe]">&lt; Full Stack + AI /&gt;</span>
                 </div>
 
-                {/* Overlapping Badge 3: Bottom-Right */}
-                <div className="absolute bottom-6 right-4 px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn">
+                {/* Badge: Bottom-Right */}
+                <div className="absolute bottom-4 right-0 px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
                   <Trophy className="w-3.5 h-3.5 text-[#f5a623]" />
                   <span className="font-mono text-xs font-semibold text-[#ff9d42]">IEEE CTF Winner</span>
                 </div>
@@ -272,12 +292,12 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
 
         </div>
 
-        {/* Stat Strip (5 Stats, Monospace Numbers) */}
+        {/* Stat Strip */}
         <div className="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="amber-glass-card p-4 rounded-2xl text-center border border-[#ff9d42]/20 hover:border-[#ff9d42]/40 transition-all"
+              className="neo-card amber-glass-card p-4 rounded-2xl text-center border border-[#ff9d42]/20 hover:border-[#ff9d42]/40 transition-all"
             >
               <div className="font-mono font-extrabold text-2xl sm:text-3xl text-amber-gradient">
                 {stat.value}

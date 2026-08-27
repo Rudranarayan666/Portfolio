@@ -6,7 +6,7 @@ export default function About() {
     {
       label: 'BASED IN',
       title: 'Thane, Maharashtra, India',
-      subtitle: 'Available for Remote & On-site Internships',
+      subtitle: 'Available for Remote & On-site Internships and job related Roles',
       icon: MapPin,
       color: 'text-[#ff9d42]',
       border: 'border-[#ff9d42]/30'
@@ -60,7 +60,7 @@ export default function About() {
                 Software Engineering student with experience in full-stack development, AI-driven systems, and cybersecurity. Built scalable applications using Python, React.js, Node.js, and FastAPI — with strong problem-solving skills sharpened across hackathons and leadership roles.
               </p>
               <p className="text-[#9aa3b2] text-base leading-relaxed font-sans">
-                Mentored 100+ students and led hackathon teams while delivering production-level projects. Currently deepening research skills as a USRF Research Fellow focused on machine learning explainability and robust benchmark pipelines.
+                Mentored 100+ students and led hackathon teams while making production-level projects. Currently deepening research skills as a USRF Research Fellow focused on machine learning explainability and robust benchmark pipelines.
               </p>
             </div>
 

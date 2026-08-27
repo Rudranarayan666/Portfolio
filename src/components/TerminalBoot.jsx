@@ -8,11 +8,13 @@ export default function TerminalBoot({ onBootComplete }) {
   const [isComplete, setIsComplete] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const terminalRef = useRef(null);
+  // Prevent double-trigger on React StrictMode double-mount
+  const hasLaunchedRef = useRef(false);
 
-  // Typewriter effect
+  // Typewriter effect — runs automatically on mount
   useEffect(() => {
     if (currentLine >= TERMINAL_BOOT_LOGS.length) {
-      // All lines typed — show "LAUNCH" button after brief pause
+      // All lines typed — show SYSTEM READY state, then auto-launch after 3.5s
       const timer = setTimeout(() => setIsComplete(true), 200);
       return () => clearTimeout(timer);
     }
@@ -48,15 +50,26 @@ export default function TerminalBoot({ onBootComplete }) {
     }
   }, [lines]);
 
-  const handleLaunch = () => {
-    setFadeOut(true);
-    setTimeout(() => {
-      if (onBootComplete) onBootComplete();
-    }, 800);
-  };
+  // Auto-launch after SYSTEM READY is shown for ~3.5 seconds
+  useEffect(() => {
+    if (!isComplete) return;
 
-  // Skip boot
+    const timer = setTimeout(() => {
+      if (hasLaunchedRef.current) return;
+      hasLaunchedRef.current = true;
+      setFadeOut(true);
+      setTimeout(() => {
+        if (onBootComplete) onBootComplete();
+      }, 700);
+    }, 3500);
+
+    return () => clearTimeout(timer);
+  }, [isComplete, onBootComplete]);
+
+  // Skip boot immediately
   const handleSkip = () => {
+    if (hasLaunchedRef.current) return;
+    hasLaunchedRef.current = true;
     setFadeOut(true);
     setTimeout(() => {
       if (onBootComplete) onBootComplete();
@@ -116,6 +129,8 @@ export default function TerminalBoot({ onBootComplete }) {
                 className={`mb-1 leading-relaxed ${
                   line.includes("OK") || line.includes("VERIFIED") || line.includes("CONFIRMED") || line.includes("LOADED")
                     ? "text-emerald-400"
+                    : line.includes("SYSTEM READY")
+                    ? "text-cyan-300 font-bold text-base"
                     : line.includes("LAUNCHING")
                     ? "text-cyan-300 font-bold"
                     : "text-slate-400"
@@ -128,28 +143,42 @@ export default function TerminalBoot({ onBootComplete }) {
               </div>
             ))}
 
-            {/* Blinking cursor at end */}
+            {/* Blinking cursor while typing */}
             {!isComplete && currentLine >= TERMINAL_BOOT_LOGS.length && (
               <div className="text-cyan-400">
                 <span className="inline-block w-2 h-4 bg-cyan-400 animate-pulse align-middle" />
               </div>
             )}
 
-            {/* Launch Button */}
+            {/* SYSTEM READY state — auto-launches after 3.5s */}
             {isComplete && (
               <div className="mt-6 flex flex-col items-center gap-3 animate-fadeIn">
-                <div className="text-xs text-cyan-400/70 font-mono tracking-wider">
-                  ALL SYSTEMS NOMINAL — READY FOR LAUNCH
-                </div>
-                <button
-                  onClick={handleLaunch}
-                  className="group relative px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold font-mono text-sm uppercase tracking-widest shadow-lg shadow-cyan-500/30 transition-all hover:-translate-y-0.5 hover:shadow-cyan-500/40"
-                >
-                  <span className="relative z-10 flex items-center gap-2">
-                    🚀 LAUNCH VECTOR
+                <div className="flex items-center gap-3">
+                  <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                  <span className="text-sm text-emerald-300 font-mono font-bold tracking-widest">
+                    ALL SYSTEMS NOMINAL — LAUNCHING PORTFOLIO...
                   </span>
-                  <div className="absolute inset-0 rounded-xl bg-cyan-400/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                </button>
+                </div>
+                {/* Progress bar */}
+                <div className="w-full max-w-xs h-1 bg-slate-800 rounded-full overflow-hidden mt-2">
+                  <div
+                    className="h-full bg-gradient-to-r from-cyan-500 to-emerald-400 rounded-full"
+                    style={{ animation: "bootProgress 3.5s linear forwards" }}
+                  />
+                </div>
+                <style>{`
+                  @keyframes bootProgress {
+                    0% { width: 0%; }
+                    100% { width: 100%; }
+                  }
+                  @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(8px); }
+                    to { opacity: 1; transform: translateY(0); }
+                  }
+                  .animate-fadeIn {
+                    animation: fadeIn 0.4s ease forwards;
+                  }
+                `}</style>
               </div>
             )}
           </div>

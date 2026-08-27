@@ -4,8 +4,10 @@ import FloatingSymbols from './components/FloatingSymbols';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+
 import Journey from './components/Journey';
 import Projects from './components/Projects';
+import Certificates from './components/Certificates';
 import Wins from './components/Wins';
 import Stack from './components/Stack';
 import Contact from './components/Contact';
@@ -42,21 +44,21 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[var(--bg-navy)] text-[var(--text-main)] relative selection:bg-[var(--amber-light)]/30 selection:text-[var(--amber-light)] transition-colors duration-300">
 
-      {/* Terminal Boot Splash Screen */}
+      {/* Terminal Boot Splash Screen — auto-launches, no click required */}
       {!bootComplete && (
         <TerminalBoot onBootComplete={() => setBootComplete(true)} />
       )}
-      
-      {/* 3D Moving Trembling Cursor */}
+
+      {/* 3D Moving Cursor */}
       <Cursor3D isReducedMotion={isReducedMotion} />
 
-      {/* 1. Persistent Fixed Canvas Constellation Background */}
+      {/* Persistent Canvas Constellation Background */}
       <NetworkCanvas isReducedMotion={isReducedMotion} />
 
-      {/* 2. Floating Code Accent Symbols (&&, #, </>, =>, {}, 01, ::) */}
+      {/* Floating Code Accent Symbols */}
       <FloatingSymbols isReducedMotion={isReducedMotion} />
 
-      {/* 3. Sticky Glass Navbar */}
+      {/* Sticky Glass Navbar */}
       <Navbar
         onOpenResume={() => setIsResumeOpen(true)}
         isReducedMotion={isReducedMotion}
@@ -65,31 +67,50 @@ export default function App() {
 
       {/* Main Content Sections */}
       <main className="relative z-10 space-y-4">
+        {/* 1. Hero — rotating roles + circular text + open-to-work badge */}
         <Hero
           onOpenResume={() => setIsResumeOpen(true)}
           isReducedMotion={isReducedMotion}
         />
+
+        {/* 2. About */}
         <About />
+
+        
+        
+
+        {/* 4. Experience, Leadership, Mentorship */}
         <Journey />
+
+        {/* 5. Featured Projects */}
         <Projects />
+
+        {/* 6. Certifications with modal viewer */}
+        <Certificates />
+
+        {/* 7. Achievements / Wins */}
         <Wins />
+
+        {/* 8. Skills / Tech Stack */}
         <Stack />
+
+        {/* 9. Contact Form */}
         <Contact />
       </main>
 
       {/* Footer */}
       <Footer />
 
-      {/* Interactive Resume Download / Request Modal */}
+      {/* Resume Modal */}
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
       />
 
-      {/* Color Theme Selector Panel */}
+      {/* Color Theme Selector */}
       <ThemePicker currentTheme={theme} onThemeChange={setTheme} />
 
-      {/* Interactive AI Chatbot Assistant */}
+      {/* AI Chatbot Assistant */}
       <Chatbot />
 
     </div>

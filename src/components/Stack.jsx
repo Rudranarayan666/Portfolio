@@ -6,23 +6,23 @@ const stackCategories = [
     title: 'Core Computer Science',
     icon: Code2,
     color: 'text-[#ff9d42]',
-    pills: ['Python ⭐⭐⭐⭐⭐', 'DSA', 'OOP', 'SQL + DBMS', 'Git/GitHub', 'Linux', 'Computer Networks', 'OS basics']
+    pills: ['Python ', 'DSA', 'OOP', 'SQL + DBMS', 'Git/GitHub', 'Linux', 'Computer Networks', 'OS basics']
   },
   {
     title: 'AI/ML & Data Science',
     icon: Cpu,
     color: 'text-[#f5a623]',
     pills: [
-      'NumPy + Pandas', 'EDA + Data Preprocessing', 'Scikit-learn', 'Statistics',
+      'NumPy + Pandas', 'EDA + Data Preprocessing', 'langchain','Scikit-learn', 'Statistics',
       'ML Algorithms', 'Feature Engineering', 'Model Evaluation', 'TensorFlow/PyTorch',
-      'Deep Learning', 'XAI / SHAP', 'GenAI', 'LLMs', 'RAG', 'AI Agents'
+      'Deep Learning', 'XAI / SHAP', 'GenAI', 'LLMs', 'RAG', 'AI Agents','Claude code'
     ]
   },
   {
     title: 'Software Engineering',
     icon: Server,
     color: 'text-[#6ea8fe]',
-    pills: ['Django / FastAPI', 'REST APIs', 'React basics', 'PostgreSQL/MySQL', 'Authentication', 'Testing', 'Docker']
+    pills: ['Django / FastAPI', 'REST APIs', 'React basics', 'PostgreSQL/MySQL', 'Authentication', 'Testing', 'OAuth','JWT']
   },
   {
     title: 'DevOps & Cloud',

@@ -178,3 +178,67 @@
 .hero-photo-glow {
   box-shadow: 0 0 60px rgba(255, 157, 66, 0.18), 0 0 100px rgba(110, 168, 254, 0.08);
 }
+
+/* ───────────────────────────────────────────────
+   Neomorphic Cards
+   Adds subtle soft-shadow depth while preserving
+   the existing futuristic glass aesthetic.
+─────────────────────────────────────────────── */
+.neo-card {
+  box-shadow:
+    4px 4px 16px rgba(0, 0, 0, 0.45),
+    -2px -2px 8px rgba(255, 255, 255, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neo-card:hover {
+  box-shadow:
+    6px 8px 24px rgba(0, 0, 0, 0.55),
+    -2px -2px 10px rgba(255, 255, 255, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 20px rgba(var(--canvas-particle), 0.06);
+}
+
+/* Neomorphic pressed state (for buttons) */
+.neo-card:active {
+  box-shadow:
+    2px 2px 8px rgba(0, 0, 0, 0.45),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.4);
+  transform: translateY(1px);
+}
+
+/* ───────────────────────────────────────────────
+   Missing gradient utilities
+─────────────────────────────────────────────── */
+.text-blue-gradient {
+  background: linear-gradient(135deg, #6ea8fe 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-orange-gradient {
+  background: linear-gradient(135deg, #f5a623 0%, #ff9d42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ───────────────────────────────────────────────
+   FadeIn animation (used by multiple components)
+─────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease forwards;
+}

@@ -6,7 +6,7 @@ export default function Contact() {
   const [phoneRevealed, setPhoneRevealed] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
 
-  const phoneNumber = '+91-8779989455';
+  const phoneNumber = 'contact through email';
 
   const handlePhoneClick = () => {
     if (!phoneRevealed) {
@@ -21,10 +21,10 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 relative z-10 scroll-mt-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Large Glass Center Panel */}
         <div className="amber-glass-card p-8 sm:p-12 rounded-3xl border border-[#ff9d42]/30 text-center space-y-6 shadow-2xl relative overflow-hidden">
-          
+
           {/* Subtle Ambient Radial Glow */}
           <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#ff9d42]/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
@@ -43,12 +43,12 @@ export default function Contact() {
 
           {/* Blurb */}
           <p className="text-base sm:text-lg text-[#9aa3b2] max-w-2xl mx-auto leading-relaxed font-sans">
-            I'm actively seeking Software Engineering / AI-ML internship opportunities. Whether it's a project, a role, or just to talk shop — my inbox is always open.
+            I'm actively seeking Software Engineering ,Full Stack ,AI-ML internship opportunities. Whether it's a project, a role, or just to talk shop — my inbox is always open.
           </p>
 
           {/* Action Buttons Row */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-            
+
             {/* Email Me Solid Button */}
             <a
               href="mailto:rudrasahu797@gmail.com"
@@ -105,7 +105,7 @@ export default function Contact() {
               <span className="text-[#6ea8fe]">Location:</span> Thane, MH, India
             </div>
             <div>
-              <span className="text-[#f5a623]">Status:</span> Available 2026/2027
+              <span className="text-[#f5a623]">Status:</span> Available 
             </div>
           </div>
 
