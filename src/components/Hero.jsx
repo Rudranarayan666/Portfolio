@@ -46,7 +46,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
 
   return (
     <section
-      className="relative pt-32 pb-16 md:pt-40 md:pb-24 z-10 overflow-hidden perspective-1000"
+      className="relative pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-40 md:pb-24 z-10 overflow-hidden perspective-1000"
       onMouseMove={handleMouseMove}
     >
       {/* Dynamic Particle Background */}
@@ -92,10 +92,10 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 transition-transform duration-200 ease-out"
            style={{ transform: `rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`, transformStyle: 'preserve-3d' }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center" style={{ transform: 'translateZ(30px)' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 items-center" style={{ transform: 'translateZ(30px)' }}>
 
           {/* ── Left Column: Text Content ── */}
-          <div className="lg:col-span-7 space-y-6 order-2 lg:order-1 text-left">
+          <div className="lg:col-span-7 space-y-6 order-2 lg:order-1 text-center lg:text-left">
 
             {/* Eyebrow Pill */}
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#ff9d42]/10 border border-[#ff9d42]/25 backdrop-blur-md">
@@ -108,16 +108,16 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
             {/* Name */}
             <div>
               <p className="text-[#9aa3b2] text-lg font-medium tracking-wide">Hi, I'm</p>
-              <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none mt-1">
+              <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight mt-1 break-words">
                 <span className="text-amber-gradient">Rudranarayan Sahu</span>
               </h1>
             </div>
 
             {/* Rotating Role Line */}
-            <div className="h-10 flex items-center">
-              <span className="font-mono text-xl sm:text-2xl font-bold text-[#f5f3ef] mr-2">I am a</span>
+            <div className="min-h-10 flex flex-wrap items-center justify-center lg:justify-start">
+              <span className="font-mono text-lg sm:text-2xl font-bold text-[#f5f3ef] mr-2">I am a</span>
               <span
-                className={`font-mono text-xl sm:text-2xl font-bold text-[#ff9d42] border-b-2 border-[#ff9d42] pb-0.5 transition-all duration-300 ${
+                className={`font-mono text-lg sm:text-2xl font-bold text-[#ff9d42] border-b-2 border-[#ff9d42] pb-0.5 transition-all duration-300 ${
                   fade ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
                 }`}
               >
@@ -126,7 +126,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
             </div>
 
             {/* Open-to-Work Availability Badge — prominent */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 neo-card">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 neo-card text-left mx-auto lg:mx-0">
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
@@ -147,7 +147,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
               <a
                 href="#projects"
                 className="px-6 py-3 rounded-xl btn-amber-gradient text-sm font-bold flex items-center space-x-2 shadow-lg"
@@ -174,7 +174,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
             </div>
 
             {/* Social Links */}
-            <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 border-t border-white/10">
               <div className="flex items-center space-x-2">
                 <a
                   href={PERSONAL_INFO.github}
@@ -209,13 +209,13 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
 
           {/* ── Right Column: Photo with Circular Text ── */}
           <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center">
-            <div className="relative w-full max-w-sm sm:max-w-md">
+            <div className="relative w-full max-w-[320px] sm:max-w-md mx-auto">
 
               {/* Photo Glow Backdrop */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#ff9d42]/20 via-[#f5a623]/10 to-[#6ea8fe]/20 blur-2xl -z-10 hero-photo-glow" />
 
               {/* Circular Text + Photo Container */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto flex items-center justify-center">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto flex items-center justify-center">
 
                 {/* ── Circular Rolling Text (SVG) ── */}
                 {!isReducedMotion && (
@@ -256,7 +256,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
                 )}
 
                 {/* Inner photo frame — stable (not rotating) */}
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-[3px] border-[#ff9d42]/60 shadow-2xl shadow-[#ff9d42]/20 amber-glass-card z-10">
+                <div className="relative w-44 h-44 sm:w-56 sm:h-56 rounded-full overflow-hidden border-[3px] border-[#ff9d42]/60 shadow-2xl shadow-[#ff9d42]/20 amber-glass-card z-10">
                   <img
                     src="/photo.png"
                     alt="Rudranarayan Sahu - Software Engineer & AI Researcher"
@@ -269,19 +269,19 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
                 </div>
 
                 {/* Badge: Top-Left */}
-                <div className="absolute top-4 left-0 px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
+                <div className="absolute top-2 left-0 sm:top-4 sm:left-0 px-2.5 sm:px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
                   <MapPin className="w-3.5 h-3.5 text-[#ff9d42]" />
-                  <span className="font-mono text-xs font-semibold text-white">Based in Thane</span>
+                  <span className="font-mono text-[10px] sm:text-xs font-semibold text-white">Based in Thane</span>
                 </div>
 
                 {/* Badge: Bottom-Left */}
-                <div className="absolute bottom-4 left-0 px-3.5 py-1.5 rounded-xl amber-glass-card border border-[#6ea8fe]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
+                <div className="absolute bottom-2 left-0 sm:bottom-4 sm:left-0 px-2.5 sm:px-3.5 py-1.5 rounded-xl amber-glass-card border border-[#6ea8fe]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
                   <Code2 className="w-3.5 h-3.5 text-[#6ea8fe]" />
                   <span className="font-mono text-xs font-semibold text-[#6ea8fe]">&lt; Full Stack + AI /&gt;</span>
                 </div>
 
                 {/* Badge: Bottom-Right */}
-                <div className="absolute bottom-4 right-0 px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
+                <div className="absolute bottom-2 right-0 sm:bottom-4 sm:right-0 px-2.5 sm:px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
                   <Trophy className="w-3.5 h-3.5 text-[#f5a623]" />
                   <span className="font-mono text-xs font-semibold text-[#ff9d42]">IEEE CTF Winner</span>
                 </div>
