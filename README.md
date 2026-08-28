@@ -168,7 +168,7 @@ portfolio/
 
 ---
 
-### 🌐 LifeSkillSphere Platform
+### 🌐 mindforge Platform
 > Full-stack life skills & psychometric tracking platform with achievement badges
 
 - **Tech:** React.js, Next.js, MongoDB, Firebase, Vercel
