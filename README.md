@@ -27,7 +27,7 @@ Hi, I'm **Rudranarayan Sahu** — a Software Engineering student at **A.P. Shah 
 | 📊 CGPA | **9.22 / 10.0** |
 | 🏆 Research | **USRF 2026 Fellow** — Top 1% Nationwide (Amity University) |
 | 🥇 Hackathons | **3× National Winner** • **4× National Finalist** |
-| 🔐 CTF | **1st Rank** — IEEE CTF HackDeck 2.0 |
+| 🔐 CTF | **1st Rank** — IEEE CTF HackDeck 2.0 |Atharva college
 
 ---
 
