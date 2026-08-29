@@ -104,7 +104,7 @@ export default function Chatbot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-40 p-4 rounded-full btn-amber-gradient shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all group"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 p-4 rounded-full btn-amber-gradient shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all group"
           aria-label="Open AI Assistant"
         >
           <MessageSquare className="w-6 h-6 text-[var(--bg-navy)]" />
@@ -117,7 +117,7 @@ export default function Chatbot() {
 
       {/* 2. Expanded Chat Drawer Panel */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-40 w-full max-w-sm sm:max-w-md h-[550px] rounded-3xl overflow-hidden border border-[var(--amber-light)]/30 bg-[rgba(9,12,22,0.92)] backdrop-blur-xl shadow-2xl flex flex-col justify-between animate-fadeIn text-[#f5f3ef]">
+        <div className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 w-full sm:max-w-md h-[100dvh] sm:h-[550px] rounded-t-3xl sm:rounded-3xl overflow-hidden border-t sm:border border-[var(--amber-light)]/30 bg-[rgba(9,12,22,0.96)] backdrop-blur-xl shadow-2xl flex flex-col justify-between animate-fadeIn text-[#f5f3ef]">
           
           {/* Header */}
           <div className="p-4 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">

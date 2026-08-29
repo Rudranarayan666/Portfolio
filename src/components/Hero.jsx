@@ -30,9 +30,19 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
   ];
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleMouseMove = (e) => {
-    if (isReducedMotion) return;
+    if (isReducedMotion || isMobile) return;
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
     const x = (clientX / innerWidth - 0.5) * 20;
@@ -91,8 +101,8 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
       )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 transition-transform duration-200 ease-out"
-           style={{ transform: `rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`, transformStyle: 'preserve-3d' }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 items-center" style={{ transform: 'translateZ(30px)' }}>
+           style={(!isMobile && !isReducedMotion) ? { transform: `rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`, transformStyle: 'preserve-3d' } : {}}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 items-center" style={(!isMobile && !isReducedMotion) ? { transform: 'translateZ(30px)' } : {}}>
 
           {/* ── Left Column: Text Content ── */}
           <div className="lg:col-span-7 space-y-6 order-2 lg:order-1 text-center lg:text-left">
@@ -208,7 +218,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
           </div>
 
           {/* ── Right Column: Photo with Circular Text ── */}
-          <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center">
+          <div className="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center justify-center">
             <div className="relative w-full max-w-[320px] sm:max-w-md mx-auto">
 
               {/* Photo Glow Backdrop */}
@@ -269,24 +279,40 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
                 </div>
 
                 {/* Badge: Top-Left */}
-                <div className="absolute -top-1 -left-2 sm:top-4 sm:left-0 px-2.5 sm:px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card scale-90 sm:scale-100 origin-top-left">
+                <div className="hidden sm:flex absolute top-4 left-0 px-2.5 sm:px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl items-center space-x-1.5 animate-fadeIn neo-card scale-90 sm:scale-100 origin-top-left">
                   <MapPin className="w-3.5 h-3.5 text-[#ff9d42]" />
                   <span className="font-mono text-[10px] sm:text-xs font-semibold text-white">Based in Thane</span>
                 </div>
 
                 {/* Badge: Bottom-Left */}
-                <div className="absolute -bottom-1 -left-2 sm:bottom-4 sm:left-0 px-2.5 sm:px-3.5 py-1.5 rounded-xl amber-glass-card border border-[#6ea8fe]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card scale-90 sm:scale-100 origin-bottom-left">
+                <div className="hidden sm:flex absolute bottom-4 left-0 px-2.5 sm:px-3.5 py-1.5 rounded-xl amber-glass-card border border-[#6ea8fe]/40 shadow-xl items-center space-x-1.5 animate-fadeIn neo-card scale-90 sm:scale-100 origin-bottom-left">
                   <Code2 className="w-3.5 h-3.5 text-[#6ea8fe]" />
                   <span className="font-mono text-xs font-semibold text-[#6ea8fe]">&lt; Full Stack + AI /&gt;</span>
                 </div>
 
                 {/* Badge: Bottom-Right */}
-                <div className="absolute -bottom-1 -right-2 sm:bottom-4 sm:right-0 px-2.5 sm:px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card scale-90 sm:scale-100 origin-bottom-right">
+                <div className="hidden sm:flex absolute bottom-4 right-0 px-2.5 sm:px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl items-center space-x-1.5 animate-fadeIn neo-card scale-90 sm:scale-100 origin-bottom-right">
                   <Trophy className="w-3.5 h-3.5 text-[#f5a623]" />
                   <span className="font-mono text-xs font-semibold text-[#ff9d42]">IEEE CTF Winner</span>
                 </div>
               </div>
 
+            </div>
+
+            {/* Mobile Badges Row */}
+            <div className="flex sm:hidden flex-wrap justify-center gap-2 mt-4 max-w-xs px-4">
+              <div className="px-2.5 py-1.5 rounded-xl bg-white/5 border border-[#ff9d42]/30 shadow-md flex items-center space-x-1.5">
+                <MapPin className="w-3 h-3 text-[#ff9d42]" />
+                <span className="font-mono text-[10px] font-semibold text-white">Thane</span>
+              </div>
+              <div className="px-2.5 py-1.5 rounded-xl bg-white/5 border border-[#6ea8fe]/30 shadow-md flex items-center space-x-1.5">
+                <Code2 className="w-3 h-3 text-[#6ea8fe]" />
+                <span className="font-mono text-[10px] font-semibold text-[#6ea8fe]">&lt; Full Stack + AI /&gt;</span>
+              </div>
+              <div className="px-2.5 py-1.5 rounded-xl bg-white/5 border border-[#ff9d42]/30 shadow-md flex items-center space-x-1.5">
+                <Trophy className="w-3 h-3 text-[#f5a623]" />
+                <span className="font-mono text-[10px] font-semibold text-[#ff9d42]">IEEE CTF Winner</span>
+              </div>
             </div>
           </div>
 
