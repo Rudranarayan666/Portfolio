@@ -38,7 +38,7 @@ Hi, I'm **Rudranarayan Sahu** — a Software Engineering student at **A.P. Shah 
 | 🖥️ **Terminal Boot Screen** | Animated CLI-style intro sequence |
 | 🌌 **Space Journey Animation** | GSAP-powered immersive scroll experience |
 | 📊 **Skills Dashboard** | Interactive proficiency bars with category tabs |
-| 🤖 **AI Chatbot** | Ask anything about my resume & projects |
+| 🤖 **AI Chatbot** | Ask anything about my resume & project |
 | 🎨 **Theme Picker** | Multi-theme dynamic color system |
 | 🌐 **Floating Symbols** | Canvas-based animated background |
 | 📁 **Project Modals** | Detailed project cards with tech stacks |
