@@ -34,7 +34,12 @@ export default function Journey() {
               return (
                 <button
                   key={exp.id}
-                  onClick={() => setSelectedExperience(exp.id)}
+                  onClick={() => {
+                    setSelectedExperience(exp.id);
+                    if (window.innerWidth < 1024) {
+                      setTimeout(() => document.getElementById('experience-details')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+                    }
+                  }}
                   className={`w-full text-left p-5 rounded-2xl border transition-all flex items-start space-x-4 relative group neo-card ${
                     isSelected
                       ? 'amber-glass-card border-[var(--amber-light)]/50 bg-white/[0.06] scale-[1.02]'
@@ -73,7 +78,7 @@ export default function Journey() {
           </div>
 
           {/* Right: Detail Panel */}
-          <div className="lg:col-span-7">
+          <div id="experience-details" className="lg:col-span-7 mt-4 lg:mt-0 scroll-mt-24">
             {(() => {
               const exp = EXPERIENCE.find((e) => e.id === selectedExperience) || EXPERIENCE[0];
               if (!exp) return null;
@@ -184,7 +189,12 @@ export default function Journey() {
               return (
                 <button
                   key={item.club}
-                  onClick={() => setSelectedLeadership(item.club)}
+                  onClick={() => {
+                    setSelectedLeadership(item.club);
+                    if (window.innerWidth < 1024) {
+                      setTimeout(() => document.getElementById('leadership-details')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+                    }
+                  }}
                   className={`w-full text-left p-6 rounded-2xl border transition-all flex items-start space-x-4 neo-card ${
                     isSelected
                       ? 'amber-glass-card border-[var(--amber-light)]/50 bg-white/[0.06] scale-[1.02]'
@@ -224,7 +234,7 @@ export default function Journey() {
           </div>
 
           {/* Right: Roles Timeline */}
-          <div className="lg:col-span-7">
+          <div id="leadership-details" className="lg:col-span-7 mt-4 lg:mt-0 scroll-mt-24">
             {(() => {
               const clubData = CAMPUS_LEADERSHIP.find((c) => c.club === selectedLeadership) || CAMPUS_LEADERSHIP[0];
               if (!clubData) return null;

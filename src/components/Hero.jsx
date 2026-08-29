@@ -147,10 +147,10 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 pt-2">
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-xl btn-amber-gradient text-sm font-bold flex items-center space-x-2 shadow-lg"
+                className="px-6 py-3 rounded-xl btn-amber-gradient text-sm font-bold flex justify-center items-center space-x-2 shadow-lg"
               >
                 <span>View Projects</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -158,7 +158,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
 
               <button
                 onClick={onOpenResume}
-                className="px-5 py-3 rounded-xl bg-white/5 border border-[#ff9d42]/30 hover:border-[#ff9d42]/60 text-[#f5f3ef] hover:text-[#ff9d42] font-mono text-sm font-semibold transition-all flex items-center space-x-2"
+                className="px-5 py-3 rounded-xl bg-white/5 border border-[#ff9d42]/30 hover:border-[#ff9d42]/60 text-[#f5f3ef] hover:text-[#ff9d42] font-mono text-sm font-semibold transition-all flex justify-center items-center space-x-2"
               >
                 <FileText className="w-4 h-4" />
                 <span>↓ Resume</span>
@@ -166,7 +166,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
 
               <a
                 href="#contact"
-                className="px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff9d42]/40 text-[#9aa3b2] hover:text-[#f5f3ef] font-mono text-sm font-medium transition-all flex items-center space-x-2"
+                className="px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff9d42]/40 text-[#9aa3b2] hover:text-[#f5f3ef] font-mono text-sm font-medium transition-all flex justify-center items-center space-x-2"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Let's Talk ➤</span>
@@ -219,7 +219,7 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
 
                 {/* ── Circular Rolling Text (SVG) ── */}
                 {!isReducedMotion && (
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="hidden sm:flex absolute inset-0 items-center justify-center pointer-events-none">
                     <svg
                       viewBox="0 0 300 300"
                       className="w-full h-full"
@@ -269,19 +269,19 @@ export default function Hero({ onOpenResume, isReducedMotion }) {
                 </div>
 
                 {/* Badge: Top-Left */}
-                <div className="absolute top-2 left-0 sm:top-4 sm:left-0 px-2.5 sm:px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
+                <div className="absolute -top-1 -left-2 sm:top-4 sm:left-0 px-2.5 sm:px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card scale-90 sm:scale-100 origin-top-left">
                   <MapPin className="w-3.5 h-3.5 text-[#ff9d42]" />
                   <span className="font-mono text-[10px] sm:text-xs font-semibold text-white">Based in Thane</span>
                 </div>
 
                 {/* Badge: Bottom-Left */}
-                <div className="absolute bottom-2 left-0 sm:bottom-4 sm:left-0 px-2.5 sm:px-3.5 py-1.5 rounded-xl amber-glass-card border border-[#6ea8fe]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
+                <div className="absolute -bottom-1 -left-2 sm:bottom-4 sm:left-0 px-2.5 sm:px-3.5 py-1.5 rounded-xl amber-glass-card border border-[#6ea8fe]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card scale-90 sm:scale-100 origin-bottom-left">
                   <Code2 className="w-3.5 h-3.5 text-[#6ea8fe]" />
                   <span className="font-mono text-xs font-semibold text-[#6ea8fe]">&lt; Full Stack + AI /&gt;</span>
                 </div>
 
                 {/* Badge: Bottom-Right */}
-                <div className="absolute bottom-2 right-0 sm:bottom-4 sm:right-0 px-2.5 sm:px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card">
+                <div className="absolute -bottom-1 -right-2 sm:bottom-4 sm:right-0 px-2.5 sm:px-3 py-1.5 rounded-xl amber-glass-card border border-[#ff9d42]/40 shadow-xl flex items-center space-x-1.5 animate-fadeIn neo-card scale-90 sm:scale-100 origin-bottom-right">
                   <Trophy className="w-3.5 h-3.5 text-[#f5a623]" />
                   <span className="font-mono text-xs font-semibold text-[#ff9d42]">IEEE CTF Winner</span>
                 </div>

@@ -114,13 +114,6 @@ export default function Navbar({ onOpenResume, isReducedMotion, onToggleMotion }
         {/* Mobile menu trigger button */}
         <div className="flex md:hidden items-center space-x-2">
           <button
-            onClick={onOpenResume}
-            className="px-2.5 py-1 rounded-lg border border-[#ff9d42]/40 text-[#ff9d42] font-mono text-xs font-medium flex items-center space-x-1"
-          >
-            <FileDown className="w-3 h-3" />
-            <span>CV</span>
-          </button>
-          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-lg bg-white/5 border border-white/10 text-[#f5f3ef] hover:text-[#ff9d42]"
             aria-label="Toggle navigation menu"
@@ -132,7 +125,7 @@ export default function Navbar({ onOpenResume, isReducedMotion, onToggleMotion }
 
       {/* Mobile Drawer Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden amber-glass-card border-b border-[#ff9d42]/20 px-4 pt-3 pb-6 space-y-3 mt-2 animate-fadeIn">
+        <div className="md:hidden amber-glass-card border-b border-[#ff9d42]/20 px-6 pt-4 pb-8 space-y-3 mt-2 animate-fadeIn">
           <nav className="flex flex-col space-y-1">
             {navLinks.map((link) => (
               <a

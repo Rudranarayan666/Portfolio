@@ -65,7 +65,7 @@ export default function About() {
             </div>
 
             {/* Core Pillars */}
-            <div className="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-center font-mono text-xs text-[#9aa3b2]">
+            <div className="pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 text-center font-mono text-xs text-[#9aa3b2]">
               <div>
                 <div className="text-[#ff9d42] font-bold text-sm">Full-Stack</div>
                 <div className="mt-0.5">Scalable Architecture</div>
