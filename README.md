@@ -186,7 +186,7 @@ portfolio/
 
 ---
 
-## 🎓 Experience
+## 🎓 Overall Experience 
 
 | Role | Company | Period |
 |---|---|---|
