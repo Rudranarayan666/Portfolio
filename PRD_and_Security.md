@@ -11,7 +11,6 @@ Provide an interactive, highly engaging, and secure personal portfolio showcasin
 - Technical Leaders & Peers
 - Academic Researchers
 
----
 
 ## 2. Core Features & Requirements
 
