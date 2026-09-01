@@ -93,7 +93,7 @@ export default function Projects() {
                   ) : (
                     <span className="font-mono text-xs text-slate-600 flex items-center space-x-1.5 cursor-default select-none">
                       <GithubIcon className="w-4 h-4" />
-                      <span>Repo — Coming Soon</span>
+                      <span>Research based</span>
                     </span>
                   )}
 
