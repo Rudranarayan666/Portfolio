@@ -9,7 +9,6 @@ Provide an interactive, highly engaging, and secure personal portfolio showcasin
 ### 1.2 Target Audience
 - Recruiters and Hiring Managers
 - Technical Leaders & Peers
-- Academic Researchers
 
 
 ## 2. Core Features & Requirements
