@@ -6,7 +6,7 @@ const stackCategories = [
     title: 'Core Computer Science',
     icon: Code2,
     color: 'text-[#ff9d42]',
-    pills: ['Python ', 'DSA', 'OOP', 'SQL + DBMS', 'Git/GitHub', 'Linux', 'Computer Networks', 'OS basics']
+    pills: ['Python ', 'DSA', 'Java','.NET', 'OOP', 'SQL + DBMS', 'Git/GitHub', 'Linux', 'Computer Networks', 'OS basics']
   },
   {
     title: 'AI/ML & Data Science',
