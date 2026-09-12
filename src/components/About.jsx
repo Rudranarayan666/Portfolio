@@ -1,108 +1,115 @@
 import React from 'react';
-import { MapPin, GraduationCap, Award, UserCheck, Sparkles } from 'lucide-react';
+import { MapPin, GraduationCap, Award, UserCheck, Sparkles, Code2, HeartHandshake } from 'lucide-react';
 
 export default function About() {
-  const infoCards = [
+  const cards = [
     {
-      label: 'BASED IN',
-      title: 'Thane, Maharashtra, India',
-      subtitle: 'Available for Remote & On-site Internships and job related Roles',
-      icon: MapPin,
-      color: 'text-[#ff9d42]',
-      border: 'border-[#ff9d42]/30'
-    },
-    {
-      label: 'STUDYING',
-      title: 'B.E. Information Technology, APSIT',
-      subtitle: 'CGPA 9.22 · 2023–2027 Batch',
+      badge: 'EDUCATION',
+      title: 'B.E. Information Technology',
+      subtitle: 'A.P. Shah Institute of Technology, Thane',
+      meta: '2023 – 2027 • CGPA: 9.22 / 10.0',
       icon: GraduationCap,
-      color: 'text-[#6ea8fe]',
-      border: 'border-[#6ea8fe]/30'
+      bg: 'bg-[#fde047]'
     },
     {
-      label: 'CURRENTLY',
-      title: 'USRF 2026 Research Fellow',
-      subtitle: 'Amity University (Selected in Top 1%)',
+      badge: 'CURRENT RESEARCH',
+      title: 'USRF 2026 Fellow',
+      subtitle: 'Amity University, Centre for AI',
+      meta: 'Selected in Top 1% Nationwide',
       icon: Award,
-      color: 'text-[#f5a623]',
-      border: 'border-[#f5a623]/30'
+      bg: 'bg-[#86efac]'
+    },
+    {
+      badge: 'LOCATION',
+      title: 'Mumbai / Thane, India',
+      subtitle: 'Available for Remote & On-site roles',
+      meta: 'Open to relocate if needed',
+      icon: MapPin,
+      bg: 'bg-[#7dd3fc]'
     }
   ];
 
   return (
-    <section id="about" className="py-20 relative z-10 scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-16 relative scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="space-y-2 mb-12">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#ff9d42]/10 border border-[#ff9d42]/20 font-mono text-xs text-[#ff9d42] font-semibold tracking-wider uppercase">
+        <div className="space-y-1 mb-10">
+          <div className="neo-badge bg-[#fde047] text-black">
             <Sparkles className="w-3.5 h-3.5" />
             <span>GET TO KNOW ME</span>
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#f5f3ef]">
-            About <span className="text-amber-gradient">Me</span>
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-black">
+            About <span className="underline decoration-4 decoration-[#86efac]">Me</span>
           </h2>
         </div>
 
-        {/* Two-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
-          {/* Left Column: Detailed Bio Paragraph */}
-          <div className="lg:col-span-7 amber-glass-card p-6 sm:p-8 rounded-3xl border border-[#ff9d42]/20 flex flex-col justify-between space-y-6">
+          {/* Left Column: Simple Story */}
+          <div className="lg:col-span-7 neo-box p-6 sm:p-8 bg-white flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <div className="flex items-center space-x-3 text-[#ff9d42] mb-2">
-                <UserCheck className="w-6 h-6" />
-                <span className="font-mono text-sm font-semibold tracking-wide uppercase text-white">
-                  Engineering & Research Mindset
-                </span>
+              <div className="flex items-center space-x-2 text-black font-mono text-xs font-bold uppercase tracking-wider">
+                <UserCheck className="w-4 h-4 text-black" />
+                <span>Background & Philosophy</span>
               </div>
-              <p className="text-[#f5f3ef]/90 text-base sm:text-lg leading-relaxed font-sans">
-                Software Engineering student with experience in full-stack development, AI-driven systems, and cybersecurity. Built scalable applications using Python, React.js, Node.js, and FastAPI — with strong problem-solving skills sharpened across hackathons and leadership roles.
+              
+              <p className="text-zinc-800 text-base sm:text-lg leading-relaxed font-medium">
+                I am an Information Technology student at APSIT with a strong focus on building practical software and dependable machine learning systems.
               </p>
-              <p className="text-[#9aa3b2] text-base leading-relaxed font-sans">
-                Mentored 100+ students and led hackathon teams while making production-level projects. Currently deepening research skills as a USRF Research Fellow focused on machine learning explainability and robust benchmark pipelines.
+              
+              <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
+                My work spans scalable web backends, responsive React frontends, and AI pipelines. I enjoy turning complex data into clear, self-explanatory interfaces. As a USRF Research Fellow, I focus on machine learning explainability and honest evaluation baselines.
+              </p>
+
+              <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
+                Beyond my own projects, I actively give back: mentoring 100+ students through hands-on technical workshops, leading campus clubs, and winning national cybersecurity hackathons.
               </p>
             </div>
 
-            {/* Core Pillars */}
-            <div className="pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 text-center font-mono text-xs text-[#9aa3b2]">
-              <div>
-                <div className="text-[#ff9d42] font-bold text-sm">Full-Stack</div>
-                <div className="mt-0.5">Scalable Architecture</div>
+            {/* 3 Simple Pillars */}
+            <div className="pt-4 border-t-2 border-black grid grid-cols-3 gap-2 text-center">
+              <div className="p-2 rounded-lg bg-zinc-100 border-2 border-black">
+                <div className="font-heading font-bold text-xs sm:text-sm text-black">Full-Stack</div>
+                <div className="text-[11px] font-mono text-zinc-600">React & APIs</div>
               </div>
-              <div>
-                <div className="text-[#6ea8fe] font-bold text-sm">AI / ML</div>
-                <div className="mt-0.5">Ensembles & SHAP</div>
+              <div className="p-2 rounded-lg bg-zinc-100 border-2 border-black">
+                <div className="font-heading font-bold text-xs sm:text-sm text-black">AI & ML</div>
+                <div className="text-[11px] font-mono text-zinc-600">Ensembles & XAI</div>
               </div>
-              <div>
-                <div className="text-[#f5a623] font-bold text-sm">Leadership</div>
-                <div className="mt-0.5">100+ Mentored</div>
+              <div className="p-2 rounded-lg bg-zinc-100 border-2 border-black">
+                <div className="font-heading font-bold text-xs sm:text-sm text-black">Community</div>
+                <div className="text-[11px] font-mono text-zinc-600">100+ Guided</div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Stacked Info Cards */}
-          <div className="lg:col-span-5 space-y-4 flex flex-col justify-between">
-            {infoCards.map((card, idx) => {
+          {/* Right Column: Key Details Cards */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-4">
+            {cards.map((card, idx) => {
               const Icon = card.icon;
               return (
                 <div
                   key={idx}
-                  className={`amber-glass-card p-5 rounded-2xl border ${card.border} flex items-start space-x-4 hover:scale-[1.01] transition-transform`}
+                  className="neo-box neo-box-hover p-5 bg-white flex items-start space-x-4"
                 >
-                  <div className={`p-3 rounded-xl bg-white/5 border border-white/10 ${card.color}`}>
-                    <Icon className="w-5 h-5" />
+                  <div className={`p-3 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_#000] ${card.bg} shrink-0`}>
+                    <Icon className="w-5 h-5 text-black" />
                   </div>
                   <div className="space-y-0.5">
-                    <div className="font-mono text-xs font-semibold text-[#9aa3b2] tracking-wider">
-                      {card.label}
-                    </div>
-                    <div className="font-heading font-bold text-base text-[#f5f3ef]">
+                    <span className="font-mono text-[11px] font-extrabold text-zinc-600 tracking-wider">
+                      {card.badge}
+                    </span>
+                    <h3 className="font-heading font-bold text-base text-black">
                       {card.title}
-                    </div>
-                    <div className="font-mono text-xs text-[#ff9d42]/90">
+                    </h3>
+                    <p className="text-xs text-zinc-700 font-medium">
                       {card.subtitle}
-                    </div>
+                    </p>
+                    <p className="text-[11px] font-mono font-bold text-zinc-500 pt-1">
+                      {card.meta}
+                    </p>
                   </div>
                 </div>
               );

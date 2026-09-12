@@ -5,82 +5,72 @@ const stackCategories = [
   {
     title: 'Core Computer Science',
     icon: Code2,
-    color: 'text-[#ff9d42]',
-    pills: ['Python ', 'DSA', 'Java','.NET', 'OOP', 'SQL + DBMS', 'Git/GitHub', 'Linux', 'Computer Networks', 'OS basics']
+    badgeBg: 'bg-[#fde047]',
+    pills: ['Python', 'Data Structures & Algorithms', 'Java', '.NET & C#', 'OOP', 'SQL & Relational DBs', 'Git & GitHub', 'Linux', 'Operating Systems', 'Computer Networks']
   },
   {
-    title: 'AI/ML & Data Science',
+    title: 'AI / Machine Learning & Data',
     icon: Cpu,
-    color: 'text-[#f5a623]',
-    pills: [
-      'NumPy + Pandas', 'EDA + Data Preprocessing', 'langchain','Scikit-learn', 'Statistics',
-      'ML Algorithms', 'Feature Engineering', 'Model Evaluation', 'TensorFlow/PyTorch',
-      'Deep Learning', 'XAI / SHAP', 'GenAI', 'LLMs', 'RAG', 'AI Agents','Claude code'
-    ]
+    badgeBg: 'bg-[#86efac]',
+    pills: ['PyTorch', 'Scikit-Learn', 'DuckDB', 'Pandas & NumPy', 'LangChain', 'Agentic AI & MCP', 'XAI / SHAP', 'OpenCV', 'Generative AI', 'Vector Databases', 'Claude Code']
   },
   {
-    title: 'Software Engineering',
+    title: 'Full-Stack Development',
     icon: Server,
-    color: 'text-[#6ea8fe]',
-    pills: ['Django / FastAPI', 'REST APIs', 'React basics', 'PostgreSQL/MySQL', 'Authentication', 'Testing', 'OAuth','JWT']
+    badgeBg: 'bg-[#7dd3fc]',
+    pills: ['React.js', 'Next.js', 'FastAPI', 'Node.js & Express', 'MongoDB', 'MySQL', 'RESTful APIs', 'Authentication (JWT/OAuth)', 'HTML5 & Tailwind CSS']
   },
   {
-    title: 'DevOps & Cloud',
+    title: 'DevOps, Cloud & Tools',
     icon: Cloud,
-    color: 'text-[#ff9d42]',
-    pills: ['Linux commands', 'Docker', 'CI/CD', 'GitHub Actions', 'AWS', 'Kubernetes']
-  },
-  {
-    title: 'Certifications',
-    icon: Award,
-    color: 'text-[#6ea8fe]',
-    pills: [
-      'IBM · Data Analysis with Python',
-      'Celonis · Process Mining Fundamentals',
-      'IBM · Prompt Engineering for Everyone'
-    ]
+    badgeBg: 'bg-[#d8b4fe]',
+    pills: ['Docker', 'Linux Bash', 'CI/CD Pipelines', 'GitHub Actions', 'Firebase', 'Vercel', 'Postman', 'VS Code Configurations']
   }
 ];
 
 export default function Stack() {
   return (
-    <section id="stack" className="py-20 relative z-10 scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="stack" className="py-16 relative scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="space-y-2 mb-12">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[rgba(var(--amber-light-rgb),0.1)] border border-[rgba(var(--amber-light-rgb),0.2)] font-mono text-xs text-[var(--amber-light)] font-semibold tracking-wider uppercase">
+        <div className="space-y-1 mb-10">
+          <div className="neo-badge bg-[#d8b4fe] text-black">
             <Cpu className="w-3.5 h-3.5" />
             <span>MY TOOLKIT</span>
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#f5f3ef]">
-            Tech <span className="text-amber-gradient">Stack</span>
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-black">
+            Tech <span className="underline decoration-4 decoration-[#86efac]">Stack</span>
           </h2>
+          <p className="text-zinc-600 text-sm font-medium">
+            Languages, frameworks, and tools I use to build robust software.
+          </p>
         </div>
 
         {/* Categorized Pill Groups */}
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {stackCategories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
               <div
                 key={idx}
-                className="amber-glass-card p-6 rounded-3xl border border-[rgba(var(--amber-light-rgb),0.2)] hover:border-[rgba(var(--amber-light-rgb),0.35)] transition-all space-y-4"
+                className="neo-box p-6 bg-white space-y-4"
               >
-                <div className="flex items-center space-x-3 border-b border-white/10 pb-3">
-                  <div className={`p-2 rounded-xl bg-white/5 border border-white/10 ${cat.color}`}>
-                    <Icon className="w-5 h-5" />
+                <div className="flex items-center space-x-3 border-b-2 border-zinc-100 pb-3">
+                  <div className={`p-2.5 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_#000] ${cat.badgeBg}`}>
+                    <Icon className="w-5 h-5 text-black" />
                   </div>
-                  <h3 className="font-heading font-bold text-lg text-white">
+                  <h3 className="font-heading font-bold text-lg text-black">
                     {cat.title}
                   </h3>
                 </div>
 
+                {/* Tactile Stickers */}
                 <div className="flex flex-wrap gap-2 pt-1">
                   {cat.pills.map((pill, pillIdx) => (
                     <span
                       key={pillIdx}
-                      className="px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-[rgba(var(--amber-light-rgb),0.1)] border border-white/10 hover:border-[rgba(var(--amber-light-rgb),0.3)] text-[#f5f3ef] hover:text-[var(--amber-light)] font-mono text-xs sm:text-sm font-semibold transition-all shadow-sm"
+                      className="px-3 py-1.5 rounded-lg bg-zinc-50 hover:bg-[#fde047] border-2 border-black font-mono text-xs font-bold text-black shadow-[2px_2px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-default select-none"
                     >
                       {pill}
                     </span>

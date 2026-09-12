@@ -1,26 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, FileDown, Send, Sparkles } from 'lucide-react';
 
-export default function Navbar({ onOpenResume, isReducedMotion, onToggleMotion }) {
-  const [scrolled, setScrolled] = useState(false);
+export default function Navbar({ onOpenResume }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-
-      // Detect active section
-      const sections = ['about', 'journey', 'projects', 'wins', 'stack', 'contact'];
+      const sections = ['about', 'experience', 'projects', 'stack', 'wins', 'certifications', 'contact'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
+          if (rect.top <= 140 && rect.bottom >= 140) {
             setActiveSection(sectionId);
             break;
           }
@@ -28,51 +20,48 @@ export default function Navbar({ onOpenResume, isReducedMotion, onToggleMotion }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Journey', href: '#journey' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Wins', href: '#wins' },
     { name: 'Stack', href: '#stack' },
+    { name: 'Wins', href: '#wins' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? 'glass-nav-scrolled py-3' : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <header className="sticky top-0 z-40 bg-[#fbf9f4]/90 backdrop-blur-md border-b-[2.5px] border-black transition-all">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        
         {/* Brand Logo */}
         <a
           href="#"
-          className="flex items-center space-x-2.5 group focus:outline-none focus:ring-2 focus:ring-[#ff9d42] rounded-lg p-1"
+          className="flex items-center space-x-2.5 group focus:outline-none"
         >
-          <div className="w-9 h-9 rounded-xl btn-amber-gradient flex items-center justify-center font-heading font-extrabold text-lg text-[#090c16] shadow-md group-hover:scale-105 transition-transform">
+          <div className="w-9 h-9 rounded-lg bg-[#fde047] border-2 border-black shadow-[2px_2px_0px_0px_#000] flex items-center justify-center font-heading font-extrabold text-lg text-black group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all">
             R
           </div>
-          <span className="font-heading font-bold text-xl tracking-tight text-[#f5f3ef]">
-            Rudra<span className="text-[#ff9d42]">.dev</span>
+          <span className="font-heading font-extrabold text-xl tracking-tight text-black">
+            Rudra<span className="text-[#eab308]">.dev</span>
           </span>
         </a>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+        <nav className="hidden md:flex items-center space-x-1.5 lg:space-x-2">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-3 py-1.5 rounded-lg font-mono text-sm font-medium transition-colors ${
+                className={`px-3 py-1.5 rounded-lg font-mono text-xs font-bold transition-all border-2 ${
                   isActive
-                    ? 'text-[#ff9d42] bg-[#ff9d42]/10 border border-[#ff9d42]/20'
-                    : 'text-[#9aa3b2] hover:text-[#f5f3ef] hover:bg-white/5'
+                    ? 'bg-[#fde047] text-black border-black shadow-[2px_2px_0px_0px_#000]'
+                    : 'text-zinc-700 border-transparent hover:text-black hover:border-black hover:bg-white hover:shadow-[2px_2px_0px_0px_#000]'
                 }`}
               >
                 {link.name}
@@ -81,80 +70,70 @@ export default function Navbar({ onOpenResume, isReducedMotion, onToggleMotion }
           })}
         </nav>
 
-        {/* Right CTA Actions */}
+        {/* Right Action CTA */}
         <div className="hidden md:flex items-center space-x-3">
-          {/* Motion toggle pill */}
-          <button
-            onClick={onToggleMotion}
-            title={isReducedMotion ? "Enable Animations" : "Reduce Motion"}
-            className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-[#ff9d42]/30 text-[#9aa3b2] hover:text-[#ff9d42] transition-colors"
-          >
-            <Sparkles className={`w-4 h-4 ${isReducedMotion ? 'opacity-40' : 'text-[#ff9d42]'}`} />
-          </button>
-
-          {/* Resume Outline Button */}
           <button
             onClick={onOpenResume}
-            className="px-3.5 py-1.5 rounded-xl border border-[#ff9d42]/40 text-[#ff9d42] hover:bg-[#ff9d42]/10 font-mono text-xs font-semibold flex items-center space-x-1.5 transition-all hover:scale-105"
+            className="neo-btn neo-btn-secondary px-3.5 py-1.5 text-xs font-mono"
           >
             <FileDown className="w-3.5 h-3.5" />
             <span>Resume</span>
           </button>
 
-          {/* Hire Me Solid Gradient Button */}
           <a
             href="#contact"
-            className="px-4 py-1.5 rounded-xl btn-amber-gradient text-xs font-semibold flex items-center space-x-1.5 shadow-lg"
+            className="neo-btn neo-btn-primary px-3.5 py-1.5 text-xs font-mono"
           >
-            <span>Hire Me</span>
             <Send className="w-3.5 h-3.5" />
+            <span>Hire Me</span>
           </a>
         </div>
 
-        {/* Mobile menu trigger button */}
-        <div className="flex md:hidden items-center space-x-2">
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-white/5 border border-white/10 text-[#f5f3ef] hover:text-[#ff9d42]"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 rounded-lg bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] text-black focus:outline-none"
+          aria-label="Toggle Navigation Menu"
+        >
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+
       </div>
 
-      {/* Mobile Drawer Dropdown */}
+      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden amber-glass-card border-b border-[#ff9d42]/20 px-6 pt-4 pb-8 space-y-3 mt-2 animate-fadeIn">
-          <nav className="flex flex-col space-y-1">
+        <div className="md:hidden border-t-2 border-black bg-white px-4 pt-4 pb-6 space-y-3 shadow-lg animate-fadeIn">
+          <div className="grid grid-cols-2 gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg font-mono text-sm text-[#f5f3ef] hover:text-[#ff9d42] hover:bg-white/5"
+                className="px-3 py-2 rounded-lg border-2 border-black text-center font-mono text-xs font-bold bg-[#fbf9f4] hover:bg-[#fde047] shadow-[2px_2px_0px_0px_#000]"
               >
                 {link.name}
               </a>
             ))}
-          </nav>
-          <div className="pt-3 border-t border-white/10 flex flex-col space-y-2">
+          </div>
+
+          <div className="pt-2 flex gap-2">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="w-full py-2 rounded-xl border border-[#ff9d42]/40 text-[#ff9d42] font-mono text-xs font-semibold flex items-center justify-center space-x-2"
+              className="flex-1 neo-btn neo-btn-secondary py-2 text-xs font-mono"
             >
-              <FileDown className="w-4 h-4" />
-              <span>↓ Download Resume</span>
+              <FileDown className="w-3.5 h-3.5" />
+              <span>Resume</span>
             </button>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-2 rounded-xl btn-amber-gradient text-xs font-semibold flex items-center justify-center space-x-2 text-center"
+              className="flex-1 neo-btn neo-btn-primary py-2 text-xs font-mono text-center"
             >
-              <span>Hire Me ➤</span>
+              <Send className="w-3.5 h-3.5" />
+              <span>Hire Me</span>
             </a>
           </div>
         </div>

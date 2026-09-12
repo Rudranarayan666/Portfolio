@@ -7,18 +7,21 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative z-10 border-t border-white/10 py-8 bg-[#090c16]/80 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="border-t-[2.5px] border-black py-8 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         
         {/* Copyright & Credit */}
-        <p className="font-mono text-xs text-[#9aa3b2]">
-          Designed &amp; built by <span className="text-[#ff9d42] font-semibold">Rudranarayan Sahu</span> · © 2026
-        </p>
+        <div className="flex items-center space-x-2">
+          <span className="w-3 h-3 rounded-full bg-[#fde047] border border-black inline-block" />
+          <p className="font-mono text-xs font-bold text-zinc-700">
+            Designed &amp; built by <span className="text-black underline decoration-2 decoration-[#fde047]">Rudranarayan Sahu</span> • © 2026
+          </p>
+        </div>
 
         {/* Scroll To Top Button */}
         <button
           onClick={scrollToTop}
-          className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff9d42]/40 text-[#9aa3b2] hover:text-[#ff9d42] transition-colors flex items-center space-x-1.5 font-mono text-xs"
+          className="neo-btn neo-btn-secondary px-3 py-1.5 text-xs font-mono"
           aria-label="Scroll back to top"
         >
           <span>Back to Top</span>
