@@ -12,25 +12,25 @@ const iconMap = {
 
 export default function Wins() {
   return (
-    <section id="wins" className="py-16 relative scroll-mt-20">
+    <section id="wins" className="py-12 sm:py-16 relative scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="space-y-1 mb-10">
+        <div className="space-y-1 mb-8">
           <div className="neo-badge bg-[#fde047] text-black">
             <Trophy className="w-3.5 h-3.5" />
             <span>HONORS & MILESTONES</span>
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-black">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl text-black">
             Key <span className="underline decoration-4 decoration-[#86efac]">Achievements</span>
           </h2>
-          <p className="text-zinc-600 text-sm font-medium">
+          <p className="text-zinc-600 text-xs sm:text-sm font-medium">
             Competitive hackathons, research fellowships, and recognition.
           </p>
         </div>
 
-        {/* Grid of Wins */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Grid of Wins: 1 column on mobile, 2 on tablet, 3 on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {ACHIEVEMENTS.map((win) => {
             const Icon = iconMap[win.icon] || Award;
             const hasLinkedin = win.linkedin && win.linkedin.trim() !== '';
@@ -39,23 +39,23 @@ export default function Wins() {
             return (
               <div
                 key={win.id}
-                className="neo-box neo-box-hover p-6 bg-white flex flex-col justify-between space-y-4"
+                className="neo-box neo-box-hover p-5 sm:p-6 bg-white flex flex-col justify-between space-y-4"
               >
-                <div className="space-y-3">
+                <div className="space-y-2.5 sm:space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="p-2.5 rounded-xl border-2 border-black bg-[#fde047] shadow-[2px_2px_0px_0px_#000]">
-                      <Icon className="w-5 h-5 text-black" />
+                    <div className="p-2 sm:p-2.5 rounded-xl border-2 border-black bg-[#fde047] shadow-[2px_2px_0px_0px_#000]">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
                     </div>
-                    <span className="font-mono text-[11px] font-bold px-2 py-0.5 rounded border border-black bg-zinc-100">
+                    <span className="font-mono text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded border border-black bg-zinc-100">
                       {win.category}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-bold text-lg text-black leading-snug">
+                    <h3 className="font-heading font-bold text-base sm:text-lg text-black leading-snug">
                       {win.title}
                     </h3>
-                    <p className="font-mono text-xs font-bold text-zinc-600 mt-0.5">
+                    <p className="font-mono text-[11px] sm:text-xs font-bold text-zinc-600 mt-0.5">
                       {win.organization}
                     </p>
                   </div>
@@ -72,9 +72,9 @@ export default function Wins() {
                       href={win.certificate}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="neo-btn px-2.5 py-1 bg-[#86efac] text-xs font-mono"
+                      className="neo-btn min-h-[36px] px-2.5 py-1 bg-[#86efac] text-xs font-mono"
                     >
-                      <FileText className="w-3 h-3" />
+                      <FileText className="w-3.5 h-3.5" />
                       <span>Certificate</span>
                       <ExternalLink className="w-2.5 h-2.5" />
                     </a>
@@ -85,7 +85,7 @@ export default function Wins() {
                       href={win.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="neo-btn px-2.5 py-1 bg-[#7dd3fc] text-xs font-mono"
+                      className="neo-btn min-h-[36px] px-2.5 py-1 bg-[#7dd3fc] text-xs font-mono"
                     >
                       <span>LinkedIn</span>
                       <ExternalLink className="w-2.5 h-2.5" />

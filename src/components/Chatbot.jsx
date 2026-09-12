@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageSquare, X, Send, Bot, User, Sparkles } from 'lucide-react';
+import { X, Send, Bot } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS, ACHIEVEMENTS, SKILLS_CATEGORIES } from '../content';
 
 export default function Chatbot() {
@@ -31,7 +31,7 @@ export default function Chatbot() {
   const getBotResponse = (query) => {
     const q = query.toLowerCase();
 
-    if (q.includes('project') || q.includes('build') || q.includes('work')) {
+    if (q.includes('project') || q.includes('build') || q.includes('work') || q.includes('finance')) {
       const projs = PROJECTS.map(p => `• ${p.title}: ${p.description}`).join('\n\n');
       return `Here are Rudranarayan's key projects:\n\n${projs}\n\nCheck out the Featured Projects section for live code links!`;
     }
@@ -54,7 +54,7 @@ export default function Chatbot() {
       return `Rudranarayan is a B.E. Information Technology student at APSIT, Thane (CGPA 9.22). He is also a USRF Research Fellow at Amity University and has mentored 100+ students.`;
     }
 
-    return `I can help you with questions about Rudra's projects, technical stack, research fellowship, or contact information. Feel free to click one of the quick buttons below!`;
+    return `I can help you with questions about Rudra's projects, technical stack, research fellowship, or contact information. Feel free to tap one of the quick buttons below!`;
   };
 
   const handleSend = (textToSend = inputValue) => {
@@ -86,25 +86,25 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-40">
-      {/* Floating Toggle Button */}
+    <div className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-40 max-w-[calc(100vw-32px)]">
+      {/* Floating Toggle Button (min 44px touch target) */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="neo-btn bg-[#fde047] text-black px-4 py-3 text-sm font-mono shadow-[4px_4px_0px_0px_#000]"
+          className="neo-btn bg-[#fde047] text-black px-4 py-2.5 min-h-[44px] text-xs sm:text-sm font-mono shadow-[3px_3px_0px_0px_#000] sm:shadow-[4px_4px_0px_0px_#000]"
           aria-label="Open AI Assistant"
         >
-          <Bot className="w-5 h-5 text-black" />
+          <Bot className="w-5 h-5 text-black shrink-0" />
           <span>Ask Rudra AI</span>
         </button>
       )}
 
-      {/* Chat Window */}
+      {/* Responsive Chat Window */}
       {isOpen && (
-        <div className="w-[340px] sm:w-[380px] h-[480px] rounded-2xl bg-white border-[3px] border-black shadow-[8px_8px_0px_0px_#000] flex flex-col overflow-hidden animate-fadeIn">
+        <div className="w-[calc(100vw-32px)] max-w-[380px] h-[min(480px,calc(100vh-100px))] rounded-2xl bg-white border-2 sm:border-[3px] border-black shadow-[6px_6px_0px_0px_#000] sm:shadow-[8px_8px_0px_0px_#000] flex flex-col overflow-hidden animate-fadeIn">
           
           {/* Header */}
-          <div className="p-3.5 bg-[#fde047] border-b-2 border-black flex items-center justify-between">
+          <div className="p-3 bg-[#fde047] border-b-2 border-black flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <div className="p-1.5 rounded-lg bg-white border-2 border-black shadow-[1px_1px_0px_0px_#000]">
                 <Bot className="w-4 h-4 text-black" />
@@ -117,7 +117,7 @@ export default function Chatbot() {
 
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 rounded-lg bg-white border-2 border-black hover:bg-[#fca5a5] transition-colors"
+              className="w-8 h-8 rounded-lg bg-white border-2 border-black hover:bg-[#fca5a5] flex items-center justify-center transition-colors"
               aria-label="Close chat"
             >
               <X className="w-4 h-4 text-black" />
@@ -125,14 +125,14 @@ export default function Chatbot() {
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-[#fbf9f4]">
+          <div className="flex-1 p-3.5 overflow-y-auto space-y-3 bg-[#fbf9f4]">
             {messages.map((msg, idx) => (
               <div
                 key={idx}
                 className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
               >
                 <div
-                  className={`max-w-[85%] p-3 rounded-xl border-2 border-black text-xs leading-relaxed font-medium whitespace-pre-line ${
+                  className={`max-w-[88%] p-2.5 sm:p-3 rounded-xl border-2 border-black text-xs leading-relaxed font-medium whitespace-pre-line ${
                     msg.sender === 'user'
                       ? 'bg-[#fde047] text-black shadow-[2px_2px_0px_0px_#000]'
                       : 'bg-white text-zinc-900 shadow-[2px_2px_0px_0px_#000]'
@@ -140,7 +140,7 @@ export default function Chatbot() {
                 >
                   {msg.text}
                 </div>
-                <span className="font-mono text-[10px] text-zinc-400 mt-1 px-1">
+                <span className="font-mono text-[9px] text-zinc-400 mt-0.5 px-1">
                   {msg.time}
                 </span>
               </div>
@@ -156,13 +156,13 @@ export default function Chatbot() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Quick Chips */}
+          {/* Quick Chips (Horizontal touch scrollable) */}
           <div className="p-2 bg-white border-t-2 border-black flex gap-1.5 overflow-x-auto no-scrollbar">
             {quickChips.map((chip, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSend(chip.query)}
-                className="px-2.5 py-1 rounded-md border border-black bg-zinc-50 hover:bg-[#86efac] font-mono text-[10px] font-bold text-black whitespace-nowrap shadow-[1px_1px_0px_0px_#000] transition-colors"
+                className="shrink-0 min-h-[32px] px-2.5 py-1 rounded-md border border-black bg-zinc-50 hover:bg-[#86efac] font-mono text-[10px] font-bold text-black whitespace-nowrap shadow-[1px_1px_0px_0px_#000] transition-colors"
               >
                 {chip.label}
               </button>
@@ -175,20 +175,21 @@ export default function Chatbot() {
               e.preventDefault();
               handleSend();
             }}
-            className="p-3 bg-white border-t-2 border-black flex gap-2"
+            className="p-2.5 sm:p-3 bg-white border-t-2 border-black flex gap-2"
           >
             <input
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Ask anything..."
-              className="flex-1 px-3 py-1.5 rounded-lg border-2 border-black text-xs font-mono focus:outline-none focus:bg-[#fef9c3]"
+              className="flex-1 px-3 py-2 rounded-lg border-2 border-black text-xs font-mono focus:outline-none focus:bg-[#fef9c3]"
             />
             <button
               type="submit"
-              className="neo-btn bg-[#fde047] text-black px-3 py-1.5 text-xs font-mono"
+              className="neo-btn bg-[#fde047] text-black w-10 h-10 p-0 flex items-center justify-center shrink-0"
+              aria-label="Send message"
             >
-              <Send className="w-3.5 h-3.5" />
+              <Send className="w-4 h-4" />
             </button>
           </form>
 
