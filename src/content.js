@@ -123,6 +123,18 @@ export const EXPERIENCE = [
 // ──────────────────────────────────────────────────────────────
 export const PROJECTS = [
   {
+    id: "finance-agent",
+    title: "FinanceAgent",
+    subtitle: "Multi-Agent Financial Intelligence & Audit Engine",
+    date: "2026",
+    badge: "Solo Project",
+    description: "Audit-grade multi-agent analyzer for 100–250+ page corporate filings with 100% deterministic grounding, verifiable citations, SHAP explainability, and cryptographic SHA-256 seals.",
+    metric: "✓ 100% Verifiable Citations & Zero Hallucination",
+    stack: ["Python 3.13", "FastAPI", "LangGraph", "React 18", "Three.js", "SHAP"],
+    github: "https://github.com/Rudranarayan666/Finance-agent",
+    live: ""
+  },
+  {
     id: "deepfake-detector",
     title: "DeepFake Detector",
     subtitle: "AI-Powered DeepFake Detection System",
