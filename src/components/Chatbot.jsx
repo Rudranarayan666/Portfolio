@@ -51,7 +51,7 @@ export default function Chatbot() {
     }
 
     if (q.includes('about') || q.includes('who') || q.includes('study') || q.includes('college')) {
-      return `Rudranarayan is a B.E. Information Technology student at APSIT, Thane (CGPA 9.22). He is also a USRF Research Fellow at Amity University and has mentored 100+ students.`;
+      return `Rudranarayan is a B.E. Information Technology student at APSIT, Thane (CGPA 9.17). He is also a USRF Research Fellow at Amity University and has mentored 100+ students.`;
     }
 
     return `I can help you with questions about Rudra's projects, technical stack, research fellowship, or contact information. Feel free to tap one of the quick buttons below!`;

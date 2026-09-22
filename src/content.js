@@ -14,7 +14,7 @@ export const PERSONAL_INFO = {
   github: "https://github.com/Rudranarayan666",
   location: "Mumbai, Maharashtra",
   metrics: [
-    { label: "CGPA", value: "9.22" },
+    { label: "CGPA", value: "9.17" },
     { label: "USRF Fellow", value: "Top 1%" },
     { label: "Hackathons", value: "3x Win / 4x Finalist" },
     { label: "CTF HackDeck", value: "1st Rank" }
@@ -54,7 +54,7 @@ export const EDUCATION = {
   institution: "A.P. Shah Institute of Technology (APSIT), Thane",
   degree: "B.E. in Information Technology",
   timeline: "2023 – 2027",
-  cgpa: "9.22 / 10.0",
+  cgpa: "9.17 / 10.0",
   highlights: [
     "Mentored 100+ junior engineering students in full-stack development & computing.",
     "Led college hackathon teams to 3x national wins and 4x national final placements.",
@@ -271,7 +271,7 @@ export const SKILLS_CATEGORIES = [
       { name: "Prompt Engineering & MCP", detail: "Model Context Protocol servers & context controls", level: 95 },
       { name: "Vector Databases", detail: "Chroma, Pinecone, and vectorized embeddings retrieval", level: 88 },
       { name: "Pandas & NumPy", detail: "Vectorized data processing & statistical modeling", level: 95 },
-      { name: "DuckDB & SQL", detail: "Self-healing query engine for DataTalk AI", level: 92 }
+      { name: "DuckDB, SQL & Power BI", detail: "In-memory SQL engine & interactive analytics reporting", level: 92 }
     ]
   },
   {

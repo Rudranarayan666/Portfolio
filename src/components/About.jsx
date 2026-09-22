@@ -7,7 +7,7 @@ export default function About() {
       badge: 'EDUCATION',
       title: 'B.E. Information Technology',
       subtitle: 'A.P. Shah Institute of Technology, Thane',
-      meta: '2023 – 2027 • CGPA: 9.22 / 10.0',
+      meta: '2023 – 2027 • CGPA: 9.17 / 10.0',
       icon: GraduationCap,
       bg: 'bg-[#fde047]'
     },

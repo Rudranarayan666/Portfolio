@@ -53,13 +53,13 @@ const stackCategories = [
     skills: [
       { name: 'PyTorch', Icon: PyTorchIcon },
       { name: 'Scikit-Learn', Icon: ScikitLearnIcon },
-      { name: 'DuckDB', Icon: DuckDBIcon },
       { name: 'Pandas & NumPy', Icon: PandasIcon },
+      { name: 'DuckDB & SQL', Icon: DuckDBIcon },
+      { name: 'Power BI & Plotly', Icon: () => <ConceptIcon type="dsa" /> },
       { name: 'LangGraph / LangChain', Icon: LangChainIcon },
       { name: 'Agentic AI & MCP', Icon: () => <ConceptIcon type="agent" /> },
       { name: 'XAI / SHAP', Icon: () => <ConceptIcon type="dsa" /> },
       { name: 'OpenCV', Icon: OpenCVIcon },
-      { name: 'Generative AI', Icon: () => <ConceptIcon type="genai" /> },
       { name: 'Vector Databases', Icon: () => <ConceptIcon type="vector" /> },
       { name: 'Claude Code', Icon: ClaudeIcon },
     ]

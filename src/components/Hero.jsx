@@ -14,7 +14,7 @@ export default function Hero({ onOpenResume }) {
   }, []);
 
   const stats = [
-    { label: 'CGPA', value: '9.22', badge: 'APSIT Mumbai', color: 'bg-[#fde047]' },
+    { label: 'CGPA', value: '9.17', badge: 'APSIT Mumbai', color: 'bg-[#fde047]' },
     { label: 'USRF Fellow', value: 'Top 1%', badge: 'Amity Univ', color: 'bg-[#86efac]' },
     { label: 'Hackathons', value: '3× Wins', badge: '4× Finalist', color: 'bg-[#7dd3fc]' },
     { label: 'Mentorship', value: '100+', badge: 'Guided', color: 'bg-[#d8b4fe]' }
