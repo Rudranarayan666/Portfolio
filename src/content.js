@@ -4,9 +4,9 @@
 
 export const PERSONAL_INFO = {
   name: "Rudranarayan Sahu",
-  title: "Software Engineer & AI Systems Developer",
+  title: "Full Stack Engineer & AI Systems Developer",
   status: "SYSTEMS ONLINE • SEEKING OPPORTUNITIES",
-  tagline: "Building scalable full-stack applications, explainable AI architectures, and cybersecurity solutions.",
+  tagline: "Building scalable full-stack applications, Data Driven systems, explainable AI architectures, and cybersecurity solutions.",
   bio: "Software Engineering student at A.P. Shah Institute of Technology with expertise in full-stack development, AI detection systems, and machine learning research.",
   email: "rudrasahu797@gmail.com",
   phone: "+91-8779989455",
@@ -25,14 +25,14 @@ export const PERSONAL_INFO = {
 // HERO SECTION
 // ──────────────────────────────────────────────────────────────
 export const HERO_ROLES = [
-  "Software Developer",
+  "AIML Engineer",
   "Full Stack Developer",
-  "AI/ML Engineer"
+  "Data Analyst"
 ];
 
-export const HERO_AVAILABILITY = "Open to SDE & AI/ML Internships and Job Opportunities";
+export const HERO_AVAILABILITY = "Open to SDE,Data Analyst, AI/ML Internships and Job Opportunities";
 
-export const HERO_CIRCULAR_TEXT = "SOFTWARE DEVELOPER • FULL STACK • AI/ML ENGINEER •";
+export const HERO_CIRCULAR_TEXT = "DATA ANALYST • FULL STACK • AI/ML ENGINEER •";
 
 // ──────────────────────────────────────────────────────────────
 // TERMINAL BOOT
@@ -95,7 +95,7 @@ export const EXPERIENCE = [
       "Automated Odoo workflows, improving backend processing efficiency and reducing operational overhead.",
       "Developed healthcare backend modules in Python, Java, and AngularJS with improved integration and validation."
     ],
-    tech: ["Python", "Java", "AngularJS", "Odoo", "REST APIs"],
+    tech: ["Python", "SQL","Java", "AngularJS", "Odoo", "REST APIs"],
     linkedin: "",
     // IPLIT internship completion certificate
     certificate: "https://drive.google.com/file/d/1o475usJ75kKX38DQZtkMjuimPiqJl_6l/view?usp=sharing"
