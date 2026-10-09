@@ -64,7 +64,7 @@ export default function About() {
               </p>
 
               <p className="text-zinc-600 text-xs sm:text-sm lg:text-base leading-relaxed">
-                Beyond my own projects, I actively give back: mentoring 100+ students through hands-on technical workshops, leading campus clubs, and winning national cybersecurity hackathons.
+                Beyond my own projects, I actively give back: mentoring 100+ students through hands-on technical workshops, leading campus clubs, and winning 4 national hackathons.
               </p>
             </div>
 

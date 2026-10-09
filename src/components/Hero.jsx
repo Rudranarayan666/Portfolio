@@ -16,7 +16,7 @@ export default function Hero({ onOpenResume }) {
   const stats = [
     { label: 'CGPA', value: '9.17', badge: 'APSIT Mumbai', color: 'bg-[#fde047]' },
     { label: 'USRF Fellow', value: 'Top 1%', badge: 'Amity Univ', color: 'bg-[#86efac]' },
-    { label: 'Hackathons', value: '3× Wins', badge: '4× Finalist', color: 'bg-[#7dd3fc]' },
+    { label: 'Hackathons', value: '4× Winner', badge: '4× Finalist', color: 'bg-[#7dd3fc]' },
     { label: 'Mentorship', value: '100+', badge: 'Guided', color: 'bg-[#d8b4fe]' }
   ];
 
@@ -34,7 +34,7 @@ export default function Hero({ onOpenResume }) {
               {/* Status Pill */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#86efac] border-2 border-black shadow-[2px_2px_0px_0px_#000] font-mono text-[11px] sm:text-xs font-bold text-black max-w-full">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse shrink-0" />
-                <span className="truncate">Open for SDE & AI/ML Opportunities</span>
+                <span className="truncate">Open for AI/ML, AI & Automation, Full Stack Opportunities</span>
               </div>
 
               {/* Title & Name */}
@@ -57,7 +57,7 @@ export default function Hero({ onOpenResume }) {
 
               {/* Simple Clean Bio */}
               <p className="text-zinc-700 text-sm sm:text-base lg:text-lg leading-relaxed font-medium max-w-xl">
-                Information Technology student at APSIT, Mumbai. I build full-stack web applications, machine learning tools, and solve real-world problems with simple, performant code.
+                Information Technology student at APSIT, Mumbai. 4× Hackathon Winner building full-stack web applications, deterministic AI platforms, and automated intelligence pipelines.
               </p>
 
               {/* CTA Buttons */}
@@ -150,7 +150,7 @@ export default function Hero({ onOpenResume }) {
 
                 <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-[#86efac] border-2 border-black shadow-[2px_2px_0px_0px_#000] sm:shadow-[3px_3px_0px_0px_#000] flex items-center space-x-1.5">
                   <Trophy className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-black" />
-                  <span className="font-mono text-[10px] sm:text-xs font-bold text-black">CTF 1st Rank</span>
+                  <span className="font-mono text-[10px] sm:text-xs font-bold text-black">4× Hackathon Winner</span>
                 </div>
               </div>
             </div>

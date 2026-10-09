@@ -245,22 +245,22 @@ export default function Projects() {
                     </div>
 
                     <div className="space-y-2 font-mono text-xs font-bold">
-                      <div className="p-2 rounded bg-white border border-black flex items-center justify-between">
-                        <span>Reliability</span>
-                        <span className="text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded border border-emerald-300">Deterministic</span>
-                      </div>
-                      <div className="p-2 rounded bg-white border border-black flex items-center justify-between">
-                        <span>Explainability</span>
-                        <span className="text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded border border-blue-300">SHAP / XAI</span>
-                      </div>
-                      <div className="p-2 rounded bg-white border border-black flex items-center justify-between">
-                        <span>Security</span>
-                        <span className="text-purple-700 bg-purple-100 px-1.5 py-0.5 rounded border border-purple-300">SHA-256</span>
-                      </div>
+                      {(currentProject.highlights || [
+                        { label: 'Reliability', value: 'Deterministic' },
+                        { label: 'Explainability', value: 'SHAP / XAI' },
+                        { label: 'Security', value: 'SHA-256' }
+                      ]).map((h, i) => (
+                        <div key={i} className="p-2 rounded bg-white border border-black flex items-center justify-between">
+                          <span>{h.label}</span>
+                          <span className="text-black bg-[#86efac] px-2 py-0.5 rounded border border-black text-[11px] font-mono">
+                            {h.value}
+                          </span>
+                        </div>
+                      ))}
                     </div>
 
                     <p className="text-[11px] font-sans font-medium text-zinc-600 leading-relaxed">
-                      Zero-hallucination execution loop with strict citations bound to source documents.
+                      {currentProject.highlightNote || "Zero-hallucination execution loop with strict citations bound to source documents."}
                     </p>
                   </div>
                 </div>

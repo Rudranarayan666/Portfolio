@@ -5,9 +5,9 @@
 export const PERSONAL_INFO = {
   name: "Rudranarayan Sahu",
   title: "Full Stack Engineer & AI Systems Developer",
-  status: "SYSTEMS ONLINE • SEEKING OPPORTUNITIES",
+  status: "SYSTEMS ONLINE • OPEN FOR AI/ML, AI & AUTOMATION, FULL STACK",
   tagline: "Building scalable full-stack applications, Data Driven systems, explainable AI architectures, and cybersecurity solutions.",
-  bio: "Software Engineering student at A.P. Shah Institute of Technology with expertise in full-stack development, AI detection systems, and machine learning research.",
+  bio: "Software Engineering student at A.P. Shah Institute of Technology with expertise in full-stack development, AI detection systems, and machine learning research. 4× Hackathon Winner.",
   email: "rudrasahu797@gmail.com",
   phone: "+91-8779989455",
   linkedin: "https://www.linkedin.com/in/rudranarayan-sahu-42017a368/",
@@ -16,7 +16,7 @@ export const PERSONAL_INFO = {
   metrics: [
     { label: "CGPA", value: "9.17" },
     { label: "USRF Fellow", value: "Top 1%" },
-    { label: "Hackathons", value: "3x Win / 4x Finalist" },
+    { label: "Hackathons", value: "4x Winner / 4x Finalist" },
     { label: "CTF HackDeck", value: "1st Rank" }
   ]
 };
@@ -30,7 +30,7 @@ export const HERO_ROLES = [
   "Data Analyst"
 ];
 
-export const HERO_AVAILABILITY = "Open to SDE,Data Analyst, AI/ML Internships and Job Opportunities";
+export const HERO_AVAILABILITY = "Open for AI/ML, AI & Automation, and Full Stack Opportunities";
 
 export const HERO_CIRCULAR_TEXT = "DATA ANALYST • FULL STACK • AI/ML ENGINEER •";
 
@@ -57,7 +57,7 @@ export const EDUCATION = {
   cgpa: "9.17 / 10.0",
   highlights: [
     "Mentored 100+ junior engineering students in full-stack development & computing.",
-    "Led college hackathon teams to 3x national wins and 4x national final placements.",
+    "Led college hackathon teams to 4x national wins and 4x national final placements.",
     "Selected as USRF 2026 Research Fellow among Top 1% nationwide applicants at Amity University."
   ]
 };
@@ -129,10 +129,68 @@ export const PROJECTS = [
     date: "2026",
     badge: "Solo Project",
     description: "Audit-grade multi-agent analyzer for 100–250+ page corporate filings with 100% deterministic grounding, verifiable citations, SHAP explainability, and cryptographic SHA-256 seals.",
+    summary: "Audit-grade multi-agent analyzer for corporate filings with 100% deterministic grounding, verifiable citations, and SHAP explainability.",
     metric: "✓ 100% Verifiable Citations & Zero Hallucination",
     stack: ["Python 3.13", "FastAPI", "LangGraph", "React 18", "Three.js", "SHAP"],
+    tech: ["Python 3.13", "FastAPI", "LangGraph", "React 18", "Three.js", "SHAP"],
     github: "https://github.com/Rudranarayan666/Finance-agent",
-    live: ""
+    live: "",
+    category: "AI & Cybersecurity",
+    period: "2026",
+    tagline: "Multi-Agent Financial Intelligence & Audit Engine",
+    posterGradient: "from-cyan-600/30 to-blue-900/40",
+    links: {
+      github: "https://github.com/Rudranarayan666/Finance-agent",
+      demo: ""
+    },
+    keyPoints: [
+      "100% verifiable citation grounding against SEC corporate filings with zero hallucination",
+      "SHAP explainable feature attribution and interactive Three.js graph visualization",
+      "Cryptographic SHA-256 tamper-evident verification seal on generated audit reports",
+      "LangGraph multi-agent orchestration for specialized financial statement verification"
+    ],
+    highlights: [
+      { label: "Reliability", value: "Deterministic Grounding" },
+      { label: "Explainability", value: "SHAP / XAI Audit" },
+      { label: "Security", value: "SHA-256 Seal" }
+    ],
+    highlightNote: "Zero-hallucination execution loop with strict citations bound to source documents."
+  },
+  {
+    id: "datalens-ai",
+    title: "DataLens AI",
+    subtitle: "Deterministic Analytics & Constrained AI Platform",
+    date: "2026",
+    badge: "Solo Project",
+    description: "AI-assisted deterministic analytics and enterprise BI platform reducing the distance between raw tabular data and explainable insights. Numerical figures are computed deterministically by Pandas/NumPy rather than LLMs, guaranteeing reproducible calculations, calculation provenance envelopes, and zero raw data egress.",
+    summary: "AI-assisted deterministic analytics and BI platform with compiled Pandas DSL, calculation provenance envelopes, zero raw data egress, and TabPFN tournaments.",
+    metric: "✓ Pandas Engine Verified • Zero Raw LLM Data Egress • TabPFN & GraphRAG",
+    stack: ["Python 3.13", "FastAPI", "React 19", "TypeScript", "Tailwind CSS v4", "Pandas", "TabPFN", "GraphRAG"],
+    tech: ["Python 3.13", "FastAPI", "React 19", "TypeScript", "Tailwind CSS v4", "Pandas", "TabPFN", "GraphRAG"],
+    github: "https://github.com/Rudranarayan666/datapilot",
+    live: "",
+    category: "AI & Data Engineering",
+    period: "2026",
+    tagline: "Deterministic Analytics & Constrained AI Platform",
+    posterGradient: "from-emerald-600/30 via-teal-700/20 to-slate-900/40",
+    links: {
+      github: "https://github.com/Rudranarayan666/datapilot",
+      demo: ""
+    },
+    keyPoints: [
+      "Controlled Analytical Query DSL (Pydantic) compiled to verified Pandas/NumPy operations — out-of-schema queries safely rejected",
+      "Calculation Provenance Envelope on every KPI with tamper-evident EvidenceRecord and 'Pandas Engine Verified' badges",
+      "Zero raw data egress: only computed statistical summaries sent to constrained AI layer (Groq llama-3.3-70b, Gemini, OpenAI) with 100% offline fallback",
+      "Central Semantic Metric Registry & Non-destructive data lineage versioning (immutable v1 with child remediation tracking)",
+      "Autonomous Data Reliability Agent: datasets with >35% missing values automatically blocked from presenting figures",
+      "Predictive tournament (TabPFN, Random Forest, Ridge) with permutation importance and Knowledge Graph (PageRank/centrality)"
+    ],
+    highlights: [
+      { label: "Computation", value: "Pandas/NumPy Core" },
+      { label: "Data Privacy", value: "Zero Raw to LLMs" },
+      { label: "Intelligence", value: "TabPFN + GraphRAG" }
+    ],
+    highlightNote: "Deterministic calculation provenance envelope with strict reliability gating and zero raw data egress."
   },
   {
     id: "deepfake-detector",
@@ -185,6 +243,22 @@ export const PROJECTS = [
 // Showcase 3–4 products you built or contributed to
 // ──────────────────────────────────────────────────────────────
 export const PRODUCTS = [
+  {
+    id: "datalens-product",
+    name: "DataLens AI",
+    tagline: "Deterministic Analytics & Constrained AI Platform",
+    description: "Enterprise BI and deterministic analytics engine bridging tabular datasets and explainable insights. Replaces hallucinated figures with compiled Pandas/NumPy execution, calculation provenance envelopes, zero raw data egress, and TabPFN tournaments.",
+    contribution: "Solo-built — Architecture, Query DSL, FastAPI Engine, React 19 UI",
+    technologies: ["Python 3.13", "FastAPI", "React 19", "TypeScript", "Tailwind CSS v4", "Pandas", "TabPFN"],
+    features: [
+      "Controlled Analytical Query DSL (Pydantic) compiling to deterministic Pandas operations",
+      "Calculation Provenance Envelope with Pandas Engine Verified badges on all metrics",
+      "Zero raw data egress to external LLMs with constrained AI synthesis (Groq/Gemini/OpenAI)",
+      "Predictive tournament (TabPFN, Random Forest) and GraphRAG multi-hop knowledge graph"
+    ],
+    github: "https://github.com/Rudranarayan666/datapilot",
+    live: ""
+  },
   {
     id: "rc-ads-product",
     name: "RC-ADS",

@@ -38,7 +38,7 @@ export default function Chatbot() {
 
     if (q.includes('hackathon') || q.includes('win') || q.includes('achievement') || q.includes('ctf')) {
       const wins = ACHIEVEMENTS.map(w => `• ${w.title} (${w.organization})`).join('\n');
-      return `Rudranarayan's key achievements:\n\n${wins}\n\nHe has 3× national wins and 4× finalist placements.`;
+      return `Rudranarayan's key achievements:\n\n${wins}\n\nHe has 4× national hackathon wins and 4× finalist placements.`;
     }
 
     if (q.includes('stack') || q.includes('skill') || q.includes('language') || q.includes('tool')) {
@@ -47,7 +47,7 @@ export default function Chatbot() {
     }
 
     if (q.includes('contact') || q.includes('email') || q.includes('hire') || q.includes('reach')) {
-      return `You can reach Rudranarayan directly at:\n\n📧 Email: ${PERSONAL_INFO.email}\n🔗 LinkedIn: ${PERSONAL_INFO.linkedin}\n🐙 GitHub: ${PERSONAL_INFO.github}\n\nHe is actively seeking SDE and AI/ML internship opportunities!`;
+      return `You can reach Rudranarayan directly at:\n\n📧 Email: ${PERSONAL_INFO.email}\n🔗 LinkedIn: ${PERSONAL_INFO.linkedin}\n🐙 GitHub: ${PERSONAL_INFO.github}\n\nHe is actively seeking AI/ML, AI & Automation, and Full Stack opportunities!`;
     }
 
     if (q.includes('about') || q.includes('who') || q.includes('study') || q.includes('college')) {
